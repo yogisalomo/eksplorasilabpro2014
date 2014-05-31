@@ -23,8 +23,10 @@ body{
 	bottom: -40px;
 	width: auto;
 	height: auto;
+	background-image: url('background.jpg');
+	background-repeat: no-repeat;
 	background-size: cover;
-	-webkit-filter: blur(5px);
+	-webkit-filter: blur(2px);
 	z-index: 0;
 }
 
@@ -58,6 +60,11 @@ body{
 
 .header div span{
 	color: #FF0000 !important;
+}
+
+.header div div{
+	font-size: 15px;
+	color: #fff !important;
 }
 
 .login{
@@ -153,7 +160,6 @@ body{
 	padding: 10px;
 	z-index: 2;
 }
-
 .footer a,
 .footer a:focus,
 .footer a:visited,
@@ -165,4 +171,121 @@ body{
 .footer a:hover {
 	color 	: #FFA347;
 	opacity	: .8;
+}
+
+.footerRegister{
+	font-family: 'Exo', sans-serif;
+	color: #fff;
+	position: absolute;
+	top: calc(100% - 75px);
+	left: calc(50% - 50px);
+	height: 50px;
+	width: 350px;
+	padding: 10px;
+	z-index: 2;
+}
+.footerRegister a,
+.footerRegister a:focus,
+.footerRegister a:visited,
+.footerRegister a:hover,
+.footerRegister a:active {
+	color: #fff;
+	text-decoration : none; 
+}
+.footerRegister a:hover {
+	color 	: #FFA347;
+	opacity	: .8;
+}
+
+.registration{
+	position: absolute;
+	top: calc(30% - 75px);
+	left: calc(50% - 50px);
+	height: 150px;
+	width: 350px;
+	padding: 10px;
+	z-index: 2;
+}
+
+.registration input[type=text]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+}
+
+.registration input[type=password]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+.registration input[type=data]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+.registration input[type=button]{
+	width: 260px;
+	height: 35px;
+	background: #fff;
+	border: 1px solid #fff;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #a18d6c;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+.registration input[type=button]:hover{
+	opacity: 0.8;
+}
+
+.registration input[type=button]:active{
+	opacity: 0.6;
+}
+
+.registration input[type=text]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.registration input[type=password]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.registration input[type=data]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.registration input[type=button]:focus{
+	outline: none;
 }
