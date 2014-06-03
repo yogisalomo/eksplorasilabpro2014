@@ -1,0 +1,91 @@
+.menu {
+	font-family			: "Calibri";
+	background-color 	: #3E3E33;
+	display		: block;
+	height 		: 35px;
+	width 		: auto;
+	font-size 	: 15px;
+}
+
+nav {
+	margin-left : 5px;
+}
+nav ul
+{
+	list-style-type	: none;
+	margin			: 0;
+	padding-left	: 0;
+}
+
+nav li
+{
+	display		: inline;
+	float		: left;
+	padding 	: 8px;
+	padding-left : 20px;
+}
+
+nav ul li a,
+nav ul li a:focus,
+nav ul li a:visited,
+nav ul li a:hover,
+nav ul li a:active {
+	color : #000;
+	text-decoration : none; 
+}
+
+nav ul li a:hover {
+	color 	: #FFA347;
+	opacity	: .8;
+}
+
+nav ul li form input[type=text]{
+	width: 150px;
+	height: 16px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 1px;
+	color: #fff;
+	font-family: 'calibri';
+	font-weight: 400;
+	margin-left : 650px;
+	padding: 0px;
+}
+
+nav ul li form input[type=text]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+nav ul li form input[type=button]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+nav ul li form input[type=button]{
+	width: 50px;
+	height: 18px;
+	background: #fff;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 1px;
+	color: #CC6600;
+	font-family: 'calibri';
+	font-weight: 500;
+	padding: 0px;
+}
+
+nav ul li form input[type=button]:hover{
+	opacity: 0.8;
+}
+
+nav ul li form input[type=button]:active{
+	opacity: 0.6;
+}
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}

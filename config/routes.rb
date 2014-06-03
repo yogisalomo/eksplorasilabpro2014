@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'main/profile'
+
+  get 'main/wall'
+
+  get 'main/chat'
+
+  get 'main/friend'
+
+  get 'main/message'
+
+  get 'main/search'
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
