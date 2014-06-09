@@ -14,19 +14,17 @@
 			
 			<br>
 			<div class="registration">
-				<form>
-				
-					<input type="text" placeholder="username" name="user"> <br>
-					<input type="password" placeholder="password" name="password"> <br>
-					<input type="data" placeholder="full name" name="fullname"> <br>
-					<input type="data" placeholder="place of birth" name="birthplace"> <br>
-					<input type="data" placeholder="date of birth dd-mm-yyyy" name="birthdate"> <br>
-					<input type="data" placeholder="city" name="city"> <br>
-					<input type="data" placeholder="hobby" name="hobby"> <br>
-					<input type="data" placeholder="gender (M/F)" name="gender"> <br>
-					
+				<%= form_tag do %>
+					<%= text_field_tag(:username,nil,placeholder:"username") %>
+					<%= text_field_tag(:password,nil,placeholder:"password") %>
+					<%= text_field_tag(:fullname,nil,placeholder:"full name") %>
+					<%= text_field_tag(:birthplace,nil,placeholder:"place of birth") %>
+					<%= text_field_tag(:birthdate,nil,placeholder:"date of birth dd-mm-yyyy") %>
+					<%= text_field_tag(:city,nil,placeholder:"city") %>
+					<%= text_field_tag(:hobby,nil,placeholder:"hobby") %>
+					<%= text_field_tag(:gender,nil,placeholder:"gender (M/F)") %>
 					<input type="button" value="Sign Up">
-				</form>
+				<% end %>
 			</div>
 			
 			<div class="footerRegister">

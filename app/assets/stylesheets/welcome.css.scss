@@ -207,19 +207,6 @@ body{
 	z-index: 2;
 }
 
-.registration input[type=text]{
-	width: 250px;
-	height: 30px;
-	background: transparent;
-	border: 1px solid rgba(255,255,255,0.6);
-	border-radius: 2px;
-	color: #fff;
-	font-family: 'Exo', sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	padding: 4px;
-}
-
 .registration input[type=password]{
 	width: 250px;
 	height: 30px;
@@ -234,7 +221,7 @@ body{
 	margin-top: 10px;
 }
 
-.registration input[type=data]{
+.registration input[type=text]{
 	width: 250px;
 	height: 30px;
 	background: transparent;
@@ -270,18 +257,12 @@ body{
 .registration input[type=button]:active{
 	opacity: 0.6;
 }
-
-.registration input[type=text]:focus{
-	outline: none;
-	border: 1px solid rgba(255,255,255,0.9);
-}
-
 .registration input[type=password]:focus{
 	outline: none;
 	border: 1px solid rgba(255,255,255,0.9);
 }
 
-.registration input[type=data]:focus{
+.registration input[type=text]:focus{
 	outline: none;
 	border: 1px solid rgba(255,255,255,0.9);
 }
