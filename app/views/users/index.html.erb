@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="UTF-8">
+	  <title> Index </title>
+	</head>
+	
+	<body>
+		<h1>Listing users</h1>
+		<table>
+		<tr>
+		<th>username</th>
+		</tr>
+
+		<% @users.each do |users| %>
+		<tr>
+		  <td> <%= users.username %> </td>
+		</tr>
+		<% end %>
+		</table>
+	</body>
+</html>

@@ -14,16 +14,16 @@
 			
 			<br>
 			<div class="login">
-				<form>
-					<input type="text" placeholder="username" name="user"> <br>
-					<input type="password" placeholder="password" name="password"> <br>
+				<%= form_for :users do |f| %>
+					<%= f.text_field :username, placeholder: 'username' %>
+					<%= f.password_field :password, placeholder: 'password' %>
 					<input type="button" value="Login">
-				</form>
+				<% end %>
 			</div>
 			
 			<div class="footer">
 				Don't have an account yet? &nbsp &nbsp
-				<a href="/welcome/register"> Register </a>
+				<a href="/users/new"> Register </a>
 			</div>
 	</body>
 
