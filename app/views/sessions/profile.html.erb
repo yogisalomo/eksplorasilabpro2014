@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> MyProfile </title>
+	</head>
+	
+	<body>
+		<div class="menu">
+			<nav>
+				<ul>
+					<li> 
+						<span><font color=#fff> biro </font></span> <span><font color=#FF0000>Jodoh</font></span>
+					</li>
+					<li>
+						<font color=#fff> | </font>
+					</li>
+					<li> 
+						<a href="/profile"> <font color=#FFA347> MyProfile </font>  </a>
+					</li>
+					<li>
+						<a href="wall"> <font color="white"> Wall </font>  </a>
+					</li>
+					<li>
+						<a href="/friends"> <font color="white"> Friends </font> </a>
+					</li>
+					<li>
+						<a href="/message"> <font color="white"> Message </font> </a>
+					</li>
+					<li>
+						<a href="/chat"> <font color="white"> Chat </font> </a>
+					</li>
+					<li>
+						<a href="/log_out"> <font color="white"> Logout </font> </a>
+					</li>
+					<li id ="searchbox">
+						<form>
+							<input type="text" placeholder="type username" name="searchUsername">
+							<input type="button" value="Search">
+						</form>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		
+		<div class="userdata">
+			<!page ini nantinya berisi data-data umum user (seperti nama, ttl, hobi dsb) dan bisa mengedit data tersebut>
+			<p> <b> Hello, </b>
+				<%= current_user.username %> <br> <br> 
+			<b> Fullname </b> <br>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.fullname %> <br> <br> 
+			<b> Place of Birth </b> <br>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.birthplace %> <br> <br>
+			<b> Date of Birth </b> <br>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.birthdate %> <br> <br>
+			<b> City </b> <br>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.city %> <br> <br>
+			<b> Hobby </b> <br>
+				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.hobby %> <br> <br> </p>
+		</div>
+	</body>
+	
+</html>

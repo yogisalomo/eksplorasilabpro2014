@@ -14,10 +14,12 @@
 			
 			<br>
 			<div class="login">
-				<%= form_for :users do |f| %>
-					<%= f.text_field :username, placeholder: 'username' %>
-					<%= f.password_field :password, placeholder: 'password' %>
-					<input type="button" value="Login">
+				<%= form_tag sessions_path do %>
+					
+					<%= text_field_tag :username, params[:username], placeholder: 'username' %>
+					
+					<%= password_field_tag :password, params[:password], placeholder: 'password' %>
+					<p class="button"><%= submit_tag "Log in" %></p>
 				<% end %>
 			</div>
 			

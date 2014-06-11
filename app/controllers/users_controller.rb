@@ -8,12 +8,12 @@ class UsersController < ApplicationController
 		if @users.save
 			redirect_to @users
 		else
-			render 'error'
+			render 'registerError'
 		end
 	end
 
 	def show
-		@users = Users.find(params[:id])
+		render 'main/index'
 	end
 	
 	def index
