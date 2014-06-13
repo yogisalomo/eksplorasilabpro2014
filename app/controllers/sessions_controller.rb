@@ -26,9 +26,17 @@ class SessionsController < ApplicationController
 	
 	def updateUser
 		user = Users.find(session[:user_id])
-		user.fullname = params[:username]
-		user.save
-		render 'profile'
+		if user
+			user.fullname = "wira"
+			user.birthplace = params[:birthplace]
+			user.birthdate = params[:birthdate]
+			user.city = params[:city]
+			user.hobby = params[:hobby]
+			user.save
+			render 'profile'
+		else
+			#supposed error
+		end
 	end
 	
 	def profile

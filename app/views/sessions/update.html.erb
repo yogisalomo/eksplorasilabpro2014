@@ -42,13 +42,13 @@
 			</nav>
 		
 		<div class = "edit">
-			<%= form_tag do %>
+			<%= form_tag userEdit_path do %>
 				<%= text_field_tag :fullname, params[:fullname], placeholder: 'fullname', value:current_user.fullname  %>
 				<%= text_field_tag :birthplace, params[:birthplace], placeholder: 'place of birth',value:current_user.birthplace %>
 				<%= text_field_tag :birthdate, params[:birthdate], placeholder: 'date of birth dd-mm-yyyy',value:current_user.birthdate %>
 				<%= text_field_tag :city, params[:city], placeholder: 'city',value:current_user.city %>
-				<%= text_field_tag :hobby, params[:hobby], placeholder: 'hobby',value:current_user.city %>
-				<a href="/userEdit"> <%= submit_tag "save" %> </a>
+				<%= text_field_tag :hobby, params[:hobby], placeholder: 'hobby',value:current_user.hobby %>
+				<%= submit_tag "save" %>
 			<% end %>
 		</div>
 	</body>
