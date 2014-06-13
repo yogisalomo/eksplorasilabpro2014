@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 	def create
 		user = Users.authenticate(params[:username], params[:password])
 		if user
-			session[:user_id] = user
+			session[:user_id] = user.id
 			render 'profile'
 		else
 			flash.now.alert = "Invalid username or password"
@@ -23,10 +23,15 @@ class SessionsController < ApplicationController
 		session[:user_id] = nil
 		render 'new'
 	end
-
+	
+	def updateUser
+		user = Users.find(session[:user_id])
+		user.fullname = params[:username]
+		user.save
+		render 'profile'
+	end
+	
 	def profile
-		user = Users.authenticate(params[:username], params[:password])
-		session[:user_id] = user
 		render 'profile'
 	end
 	
@@ -43,8 +48,6 @@ class SessionsController < ApplicationController
 	end
 	
 	def chat
-		user = Users.authenticate(params[:username], params[:password])
-		session[:user_id] = user
 		render 'chat'
 	end
 	
@@ -57,6 +60,11 @@ class SessionsController < ApplicationController
 	end
 	
 	def current_user
-		@current_user ||= Users.find(session[:user_id]) if session[:user_id]
+		@current_user ||=  session[:user_id] && Users.find(session[:user_id])
+	end
+	
+	private
+	def update_params
+		params.permit(:fullname, :birthplace, :birthdate, :city, :hobby)
 	end
 end

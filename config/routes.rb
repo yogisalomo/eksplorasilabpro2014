@@ -12,14 +12,14 @@ Rails.application.routes.draw do
   
   get 'sessions/wall'
   get 'sessions/chat'
-  get 'sessions/edit_profile'
+  get 'sessions/update'
   get 'sessions/friend'
   get 'sessions/message'
   get 'sessions/search'
   
   get "profile" => "sessions#profile", :as => "profile"
   get "wall" => "sessions#wall", :as => "wall"
-  get "edit_profile" => "sessions#edit_profile", :as => "edit_profile"
+  get "edit_profile" => "sessions#update", :as => "edit_profile"
   get "friend" => "sessions#friend", :as => "friend"
   get "chat" => "sessions#chat", :as => "chat"
   get "message" => "sessions#message", :as => "message"
@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
+  get "save" => "users#update", :as => "save"
+  get "userEdit" => "sessions#updateUser", :as => "userEdit"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 			render 'registerError'
 		end
 	end
-
+	
 	def show
 		render 'main/index'
 	end

@@ -21,7 +21,7 @@
 						<a href="wall"> <font color="white"> Wall </font>  </a>
 					</li>
 					<li>
-						<a href="/friends"> <font color="white"> Friends </font> </a>
+						<a href="/friend"> <font color="white"> Friends </font> </a>
 					</li>
 					<li>
 						<a href="/message"> <font color="white"> Message </font> </a>
@@ -35,27 +35,32 @@
 					<li id ="searchbox">
 						<form>
 							<input type="text" placeholder="type username" name="searchUsername">
-							<input type="button" value="Search">
+							<a href="/search"> <input type="button" value="Search"> </a>
 						</form>
 					</li>
 				</ul>
 			</nav>
 		</div>
 		
-		<div class="userdata">
-			<!page ini nantinya berisi data-data umum user (seperti nama, ttl, hobi dsb) dan bisa mengedit data tersebut>
-			<p> <b> Hello, </b>
-				<%= current_user.username %> <br> <br> 
-			<b> Fullname </b> <br>
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.fullname %> <br> <br> 
-			<b> Place of Birth </b> <br>
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.birthplace %> <br> <br>
-			<b> Date of Birth </b> <br>
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.birthdate %> <br> <br>
-			<b> City </b> <br>
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.city %> <br> <br>
-			<b> Hobby </b> <br>
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.hobby %> <br> <br> </p>
+		<div class="text">
+			<div>
+				<!page ini nantinya berisi data-data umum user (seperti nama, ttl, hobi dsb) dan bisa mengedit data tersebut>
+				<p> <b> Hello, </b>
+					<%= current_user.username %> <br> <br> 
+				<b> Fullname </b> <br>
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.fullname %> <br> <br> 
+				<b> Place of Birth </b> <br>
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.birthplace %> <br> <br>
+				<b> Date of Birth </b> <br>
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.birthdate %> <br> <br>
+				<b> City </b> <br>
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.city %> <br> <br>
+				<b> Hobby </b> <br>
+					&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= current_user.hobby %> <br> <br> </p>
+				<br>
+				<br>
+				<a href="/edit_profile"> Edit Profile </a>
+			</div>
 		</div>
 	</body>
 	

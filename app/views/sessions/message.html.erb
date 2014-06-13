@@ -1,7 +1,49 @@
-<h1>Main#message</h1>
-<p>Find me in app/views/main/message.html.erb</p>
-
-<body>
-	page ini berisi :
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Message </title>
+	</head>
+	
+	<body>
+		<div class="menu">
+			<nav>
+				<ul>
+					<li> 
+						<span><font color=#fff> biro </font></span> <span><font color=#FF0000>Jodoh</font></span>
+					</li>
+					<li>
+						<font color=#fff> | </font>
+					</li>
+					<li> 
+						<a href="/profile"> <font color="white"> MyProfile </font>  </a>
+					</li>
+					<li>
+						<a href="wall"> <font color="white"> Wall </font>  </a>
+					</li>
+					<li>
+						<a href="/friend"> <font color="white"> Friends </font> </a>
+					</li>
+					<li>
+						<a href="/message"> <font color=#FFA347> Message </font> </a>
+					</li>
+					<li>
+						<a href="/chat"> <font color="white"> Chat </font> </a>
+					</li>
+					<li>
+						<a href="/log_out"> <font color="white"> Logout </font> </a>
+					</li>
+					<li id ="searchbox">
+						<form>
+							<input type="text" placeholder="type username" name="searchUsername">
+							<a href="/search"> <input type="button" value="Search"> </a>
+						</form>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		
+		page ini berisi : <br>
 		daftar private message user
-</body>
+	</body>
+	
+</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> Chat </title>
+		<title> Edit Profile </title>
 	</head>
 	
 	<body>
@@ -15,7 +15,7 @@
 						<font color=#fff> | </font>
 					</li>
 					<li> 
-						<a href="/profile"> <font color="white"> MyProfile </font>  </a>
+						<a href="/profile"> <font color=#FFA347> MyProfile </font>  </a>
 					</li>
 					<li>
 						<a href="wall"> <font color="white"> Wall </font>  </a>
@@ -27,7 +27,7 @@
 						<a href="/message"> <font color="white"> Message </font> </a>
 					</li>
 					<li>
-						<a href="/chat"> <font color=#FFA347> Chat </font> </a>
+						<a href="/chat"> <font color="white"> Chat </font> </a>
 					</li>
 					<li>
 						<a href="/log_out"> <font color="white"> Logout </font> </a>
@@ -40,13 +40,17 @@
 					</li>
 				</ul>
 			</nav>
-		</div>
 		
-		page ini : <br>
-		Dapat menampilkan list user yang pernah di chat user tersebut <br>
-		Dapat menampilkan list user lain yang berlawanan jenis (ada menunya) <br>
-		Dapat memilih user untuk diajak chatting <br>
-		Dapat chatting dengan user tersebut <br>
+		<div class = "edit">
+			<%= form_tag do %>
+				<%= text_field_tag :fullname, params[:fullname], placeholder: 'fullname', value:current_user.fullname  %>
+				<%= text_field_tag :birthplace, params[:birthplace], placeholder: 'place of birth',value:current_user.birthplace %>
+				<%= text_field_tag :birthdate, params[:birthdate], placeholder: 'date of birth dd-mm-yyyy',value:current_user.birthdate %>
+				<%= text_field_tag :city, params[:city], placeholder: 'city',value:current_user.city %>
+				<%= text_field_tag :hobby, params[:hobby], placeholder: 'hobby',value:current_user.city %>
+				<a href="/userEdit"> <%= submit_tag "save" %> </a>
+			<% end %>
+		</div>
 	</body>
 	
 </html>
