@@ -130,10 +130,13 @@ nav ul li form input[type=button]:active{
 
 .edit{
 	position: absolute;
+	font-size : 16px;
+	font-family: 'Exo', sans-serif;
+	color : #3E3E33;
 	top: calc(30% - 75px);
 	left: calc(42% - 50px);
 	height: 150px;
-	width: 350px;
+	width: 500px;
 	padding: 10px;
 	z-index: 2;
 }

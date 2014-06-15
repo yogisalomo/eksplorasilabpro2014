@@ -42,9 +42,9 @@ class SessionsController < ApplicationController
 	def createPesan
 		user = User.find_by_username(params[:receiver])
 		if user
-			pesan = Pesans.new
+			pesan = Pesan.new
 			pesan.receiver = params[:receiver]
-			user = Users.find(session[:user_id])
+			user = User.find(session[:user_id])
 			pesan.sender = user.username
 			pesan.text = params[:text]
 			pesan.save
