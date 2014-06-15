@@ -42,18 +42,8 @@
 			</nav>
 		</div>
 		
-		<div class="Inbox">
-			<a href = "/composeMessage"> Compose </a> <br> <br>
-			
-			<% if @current_inbox.blank? %>
-				Inbox Empty
-			<% else %>
-				Ada
-				<% for pesan in @current_inbox %>
-					<%= pesan.sender %> <br>
-					<%= pesan.text %> <br>
-				<% end %>
-			<% end %>
+		<div class="error">
+			Receiver username is not found
 		</div>
 	</body>
 	

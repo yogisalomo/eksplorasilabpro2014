@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   resources :users
   resources :sessions
+  resources :pesans
+  
   get 'users/new'
   get 'users/registerError'
   get 'users/create'
@@ -28,8 +30,10 @@ Rails.application.routes.draw do
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   get "save" => "users#update", :as => "save"
+  get "composeMessage" => "sessions#composeMessage", :as => "composeMessage"
+  post "createPesan" => "sessions#createPesan", :as => "createPesan"
   post "userEdit" => "sessions#updateUser", :as => "userEdit"
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

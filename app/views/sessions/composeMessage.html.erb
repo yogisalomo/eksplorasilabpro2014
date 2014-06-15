@@ -42,17 +42,15 @@
 			</nav>
 		</div>
 		
-		<div class="Inbox">
-			<a href = "/composeMessage"> Compose </a> <br> <br>
-			
-			<% if @current_inbox.blank? %>
-				Inbox Empty
-			<% else %>
-				Ada
-				<% for pesan in @current_inbox %>
-					<%= pesan.sender %> <br>
-					<%= pesan.text %> <br>
-				<% end %>
+		<div class="composeMessage">
+			<%= form_tag createPesan_path do %>
+				<b> Username Penerima : </b> <br>
+				<%= text_field_tag :receiver, params[:receiver] %>
+				<br> <br>
+				<b> Isi Pesan : </b> <br>
+				<%= text_area_tag :text, params[:text] %>
+				<br>
+				<p class="button"><%= submit_tag "Send" %></p>
 			<% end %>
 		</div>
 	</body>

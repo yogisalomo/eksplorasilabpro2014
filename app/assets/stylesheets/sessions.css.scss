@@ -186,3 +186,53 @@ nav ul li form input[type=button]:active{
 .edit input[type=submit]:focus{
 	outline: none;
 }
+
+.composeMessage {
+	font-family : "Calibri";
+	margin-left : 100px;
+	margin-top : 100px;
+	font-size : 16px;
+}
+
+.composeMessage input[type=submit]{
+	width: 260px;
+	height: 35px;
+	background: #3E3E33;
+	border: 1px solid #3E3E33;
+	cursor: pointer;
+	border-radius: 2px;
+	color: #FFA347;
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+.composeMessage input[type=submit]:hover{
+	opacity: 0.8;
+}
+
+.composeMessage input[type=submit]:active{
+	opacity: 0.6;
+}
+
+.composeMessage input[type=submit]:focus{
+	outline: none;
+}
+
+.composeMessage input[type=text] {
+	width: 600px;
+	height: 20px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+}
+
+.composeMessage textarea {
+	width: 600px;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+}

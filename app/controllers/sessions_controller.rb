@@ -39,6 +39,21 @@ class SessionsController < ApplicationController
 		end
 	end
 	
+	def createPesan
+		user = Users.find_by_username(params[:receiver])
+		if user
+			pesan = Pesans.new
+			pesan.receiver = params[:receiver]
+			user = Users.find(session[:user_id])
+			pesan.sender = user.username
+			pesan.text = params[:text]
+			pesan.save
+			render 'message'
+		else
+			render 'MsgError'
+		end
+	end
+	
 	def profile
 		render 'profile'
 	end
@@ -69,6 +84,10 @@ class SessionsController < ApplicationController
 	
 	def current_user
 		@current_user ||=  session[:user_id] && Users.find(session[:user_id])
+	end
+	
+	def current_inbox
+		@current_inbox ||= current_user && Pesans.where(["receiver = ?", current_user.username]).select("sender, text").all
 	end
 	
 	private
