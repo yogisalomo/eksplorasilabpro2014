@@ -1,6 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
 
+.mbody {
+	background-image: url('mainbg.jpg');
+}
+
 .menu {
 	font-family : "Calibri";
 	background-color : #3E3E33;
@@ -190,7 +194,7 @@ nav ul li form input[type=button]:active{
 .composeMessage {
 	font-family : "Calibri";
 	margin-left : 100px;
-	margin-top : 100px;
+	margin-top : 50px;
 	font-size : 16px;
 }
 
@@ -235,4 +239,23 @@ nav ul li form input[type=button]:active{
 	border: 3px solid #cccccc;
 	padding: 5px;
 	font-family: Tahoma, sans-serif;
+}
+
+.inbox {
+	font-family : "Calibri";
+	margin-left : 100px;
+	margin-top : 50px;
+	font-size : 16px;
+}
+
+.headermsg {
+	width : 900px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+}
+
+.messagetext {
+	width : 900px;
+	border: 3px solid #cccccc;
+	padding: 5px;
 }

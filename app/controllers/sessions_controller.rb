@@ -48,7 +48,7 @@ class SessionsController < ApplicationController
 			pesan.sender = user.username
 			pesan.text = params[:text]
 			pesan.save
-			render 'message'
+			render 'sendSuccess'
 		else
 			render 'MsgError'
 		end
@@ -87,7 +87,7 @@ class SessionsController < ApplicationController
 	end
 	
 	def current_inbox
-		@current_inbox ||= current_user && Pesans.where(["receiver = ?", current_user.username]).select("sender, text").all
+		@current_inbox ||= current_user && Pesans.where(["receiver = ?", current_user.username]).select("sender, text, created_at").all.order(created_at: :desc)
 	end
 	
 	private

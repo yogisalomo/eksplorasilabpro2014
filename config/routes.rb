@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'sessions/chat'
   get 'sessions/update'
   get 'sessions/friend'
-  get 'sessions/message'
+  get 'sessions/current_inbox'
   get 'sessions/search'
   
   get "profile" => "sessions#profile", :as => "profile"
@@ -24,13 +24,14 @@ Rails.application.routes.draw do
   get "edit_profile" => "sessions#update", :as => "edit_profile"
   get "friend" => "sessions#friend", :as => "friend"
   get "chat" => "sessions#chat", :as => "chat"
-  get "message" => "sessions#message", :as => "message"
+  get "message" => "sessions#current_inbox", :as => "message"
   get "search" => "sessions#search", :as => "search"
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   get "save" => "users#update", :as => "save"
   get "composeMessage" => "sessions#composeMessage", :as => "composeMessage"
+  get "sendSuccess" => "sessions#sendSuccess", :as => "sendSuccess"
   post "createPesan" => "sessions#createPesan", :as => "createPesan"
   post "userEdit" => "sessions#updateUser", :as => "userEdit"
   

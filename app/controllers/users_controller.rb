@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 	end
 	
 	def show
-		render 'main/index'
+		render 'sessions/new'
 	end
 	
 	def index

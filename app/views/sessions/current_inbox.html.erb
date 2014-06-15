@@ -4,7 +4,7 @@
 		<title> Message </title>
 	</head>
 	
-	<body>
+	<body class="mbody">
 		<div class="menu">
 			<nav>
 				<ul>
@@ -42,16 +42,25 @@
 			</nav>
 		</div>
 		
-		<div class="Inbox">
+		<div class="inbox">
 			<a href = "/composeMessage"> Compose </a> <br> <br>
 			
 			<% if @current_inbox.blank? %>
-				Inbox Empty
+				<div class="headermsg">
+					Inbox Empty
+				</div>
 			<% else %>
-				Ada
 				<% for pesan in @current_inbox %>
-					<%= pesan.sender %> <br>
-					<%= pesan.text %> <br>
+					<div class="headermsg">
+						<b> Sender : </b> <%= pesan.sender %>
+					</div>
+					<div class="headermsg">
+						<b> Time &nbsp&nbsp&nbsp&nbsp: </b> <%= pesan.created_at %>
+					</div>
+					<div class="messagetext">
+						<%= pesan.text %>
+					</div>
+					<br> <br>
 				<% end %>
 			<% end %>
 		</div>
