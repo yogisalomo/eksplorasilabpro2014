@@ -44,10 +44,10 @@
 		
 		<div class="composeMessage">
 			<%= form_tag createPesan_path do %>
-				<b> Username Penerima : </b> <br>
+				<b> Receiver Username : </b> <br>
 				<%= text_field_tag :receiver, params[:receiver] %>
 				<br> <br>
-				<b> Isi Pesan : </b> <br>
+				<b> Message Text : </b> <br>
 				<%= text_area_tag :text, params[:text] %>
 				<br>
 				<p class="button"><%= submit_tag "Send" %></p>

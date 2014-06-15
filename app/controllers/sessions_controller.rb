@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 	end
 	
 	def create
-		user = Users.authenticate(params[:username], params[:password])
+		user = User.authenticate(params[:username], params[:password])
 		if user
 			session[:user_id] = user.id
 			render 'profile'
@@ -25,9 +25,9 @@ class SessionsController < ApplicationController
 	end
 	
 	def updateUser
-		user = Users.find(session[:user_id])
+		user = User.find(session[:user_id])
 		if user
-			user.fullname = "wira"
+			user.fullname = params[:fullname]
 			user.birthplace = params[:birthplace]
 			user.birthdate = params[:birthdate]
 			user.city = params[:city]
@@ -40,7 +40,7 @@ class SessionsController < ApplicationController
 	end
 	
 	def createPesan
-		user = Users.find_by_username(params[:receiver])
+		user = User.find_by_username(params[:receiver])
 		if user
 			pesan = Pesans.new
 			pesan.receiver = params[:receiver]
@@ -83,11 +83,11 @@ class SessionsController < ApplicationController
 	end
 	
 	def current_user
-		@current_user ||=  session[:user_id] && Users.find(session[:user_id])
+		@current_user ||=  session[:user_id] && User.find(session[:user_id])
 	end
 	
 	def current_inbox
-		@current_inbox ||= current_user && Pesans.where(["receiver = ?", current_user.username]).select("sender, text, created_at").all.order(created_at: :desc)
+		@current_inbox ||= current_user && Pesan.where(["receiver = ?", current_user.username]).select("sender, text, created_at").all.order(created_at: :desc)
 	end
 	
 	private

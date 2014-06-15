@@ -1,4 +1,4 @@
-class Users < ActiveRecord::Base
+class User < ActiveRecord::Base
 	validates :username, :password, :fullname, :birthplace, :birthdate, :city, :hobby, presence: true
 	validates :username, uniqueness: true
 	

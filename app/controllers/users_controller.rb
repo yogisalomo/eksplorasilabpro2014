@@ -3,10 +3,10 @@ class UsersController < ApplicationController
 	end
 	
 	def create
-		@users = Users.new(users_params)
+		@user = User.new(user_params)
 
-		if @users.save
-			redirect_to @users
+		if @user.save
+			redirect_to @user
 		else
 			render 'registerError'
 		end
@@ -17,11 +17,11 @@ class UsersController < ApplicationController
 	end
 	
 	def index
-		@users = Users.all
+		@users = User.all
 	end
 	
 	private
-	def users_params
+	def user_params
 		params.require(:users).permit(:username, :password, :fullname, :birthplace, :birthdate, :city, :hobby, :gender)
 	end
 end
