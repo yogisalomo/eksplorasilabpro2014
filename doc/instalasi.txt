@@ -1,0 +1,7 @@
+Copy folder totalFootball ke dalam folder htdocs yang terletak di dalam direktori instalasi XAMPP anda.
+
+Start service Apache pada XAMPP
+
+Ketikkan  ' localhost/totalFootball/totalFootball.html ' tanpa tanda kutip di address bar pada browser anda.
+
+Selamat menikmati.
