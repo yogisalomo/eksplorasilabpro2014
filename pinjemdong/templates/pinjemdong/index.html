@@ -1,3 +1,5 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'pinjemdong/bootstrap.min.css' %}" />
 {{ message }}
 <SCRIPT language="JavaScript">
 function OnSubmitForm()
@@ -16,6 +18,34 @@ function OnSubmitForm()
   return true;
 }
 </SCRIPT>
+
+<title>Pinjemdong</title>
+<body>
+	<nav class="navbar navbar-default" role="navigation">	
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		      	</button>
+   				<a class="navbar-brand" href="{% url 'pinjemdong:home' username %}">Home</a>
+				<a class="navbar-brand" href="{% url 'pinjemdong:myprofile' username %}">Profile</a>
+				<a class="navbar-brand" href="{% url 'pinjemdong:login' %}">Log Out</a>
+				<form class="navbar-form navbar-left" role="search" name="search" onSubmit="return OnSubmitForm();">
+					{% csrf_token %}
+			        <div class="form-group">
+			          	<input type="text" class="form-control" placeholder="Search" name="query" id="query">
+			        </div>
+			        <button type="submit" class="btn btn-default">Submit</button>
+			        <input type="radio" name="radiosearch" checked="checked"/>People
+					<input type="radio" name="radiosearch" />Book
+		      	</form>
+			</div>
+		</div>
+	</nav>
+	
 {% if username %}
 	<form name="search" onSubmit="return OnSubmitForm();">
 		{% csrf_token %}
@@ -32,3 +62,4 @@ function OnSubmitForm()
 	<meta http-equiv="REFRESH" content="0;url={% url 'pinjemdong:login' %}">
 {% endif %}
 
+</body>

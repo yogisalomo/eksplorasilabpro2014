@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 {{ message }}
 <form action="{% url 'pinjemdong:newAccount' %}" method="post">
 	{% csrf_token %}

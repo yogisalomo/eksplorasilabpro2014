@@ -3,7 +3,8 @@ from pinjemdong import views
 
 urlpatterns = patterns('',
     url(r'^login/$', views.login, name='login'),
-    url(r'^index/(?P<message>)/$', views.index, name='index'),
+    url(r'^home/(?P<username>.+)$', views.home, name='home'),
+    url(r'^index/(?P<message>.+)/$', views.index, name='index'),
     url(r'^validate/$', views.validate, name='validate'),
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^newAccount/$', views.newAccount, name='newAccount'),

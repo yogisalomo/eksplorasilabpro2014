@@ -1,3 +1,23 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'pinjemdong/bootstrap.min.css' %}" />
+
+
+<title>Pinjemdong</title>
+<body>
+	<nav class="navbar navbar-default" role="navigation">	
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		      	</button>
+				<a class="navbar-brand" href="{% url 'pinjemdong:signup' %}">Register</a>
+			</div>
+		</div>
+	</nav>
+
 <form action="{% url 'pinjemdong:validate' %}" method="post" id="login-form">{% csrf_token %}
 	{% csrf_token %}
 	<label for="username">Username</label>
@@ -6,6 +26,6 @@
 	<input type="password" name="password" id="password"/><br>
 	<input type="submit" value="login"/>
 </form>
-<a href="{% url 'pinjemdong:signup' %}">Register</a>
+
 <br><br>
 {{ message }}
