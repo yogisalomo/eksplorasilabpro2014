@@ -1,0 +1,102 @@
+<html>
+<head>
+	<link rel="shortcut icon" href="icon.ico" >
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.10/angular.min.js"></script>
+	<script src="best11.js" type="text/javascript"></script>
+	<script src="best11Controller.js" type="text/javascript"></script>
+</head>
+<body>
+	<title> totalFootball </title>
+	<div id="object" class="slideLeft">totalFootball</div>
+		<div>FIFA WORLD CUP 2014 BRASIL SCHEDULE
+			<div>
+				<center>
+				<ul id="navigation">
+					<li>
+						<a href="tables.html">Tables</a>
+					</li>
+					<li>
+						<a href="best11.html">My best Eleven</a>
+					</li>
+					<li>
+						<a href="matches.html">Matches and Scores</a>
+					</li>
+					<li>
+						<a href="editProfile.html">My Profile</a>
+					</li>
+				</center>
+				<br>
+	<form ng-app='best11App' ng-controller="best11Controller" ng-submit="createBest11()">
+		<ol>
+			<li>
+				<select ng-model='selectedTeam1' ng-options='obj1.name for obj1 in dataTim'></select>
+				<select ng-model='selectedPlayer1'>
+					<option ng-repeat='pemain in dataTim[selectedTeam1.id].player'>{{pemain}} </option>
+				</select>
+			</li><br>
+			<li>
+				<select ng-model='selectedTeam2' ng-options='obj2.name for obj2 in dataTim'></select>
+				<select ng-model='selectedPlayer2'>
+					<option ng-repeat='pemain in dataTim[selectedTeam2.id].player'>{{pemain}} </option>
+				</select>
+			</li><br>
+			<li>
+				<select ng-model='selectedTeam3' ng-options='obj3.name for obj3 in dataTim'></select>
+				<select ng-model='selectedPlayer3'>
+					<option ng-repeat='pemain in dataTim[selectedTeam3.id].player'>{{pemain}} </option>
+				</select>
+			</li><br>
+			<li>
+				<select ng-model='selectedTeam4' ng-options='obj4.name for obj4 in dataTim'></select>
+				<select ng-model='selectedPlayer4'>
+					<option ng-repeat='pemain in dataTim[selectedTeam4.id].player'>{{pemain}} </option>
+				</select>
+			</li><br>
+			<li>
+				<select ng-model='selectedTeam5' ng-options='obj5.name for obj5 in dataTim'></select>
+				<select ng-model='selectedPlayer5'>
+					<option ng-repeat='pemain in dataTim[selectedTeam5.id].player'>{{pemain}} </option>
+				</select>
+			</li><br>
+			<li>
+				<select ng-model='selectedTeam6' ng-options='obj6.name for obj6 in dataTim'></select>
+				<select ng-model='selectedPlayer6'>
+					<option ng-repeat='pemain in dataTim[selectedTeam6.id].player'>{{pemain}} </option>
+				</select>
+			</li><br>
+			<li>
+				<select ng-model='selectedTeam7' ng-options='obj7.name for obj7 in dataTim'></select>
+				<select ng-model='selectedPlayer7'>
+					<option ng-repeat='pemain in dataTim[selectedTeam7.id].player'>{{pemain}} </option>
+				</select>
+			</li><br>
+			<li>
+				<select ng-model='selectedTeam8' ng-options='obj8.name for obj8 in dataTim'></select>
+				<select ng-model='selectedPlayer8'>
+					<option ng-repeat='pemain in dataTim[selectedTeam8.id].player'>{{pemain}} </option>
+				</select>
+			</li><br>
+			<li>
+				<select ng-model='selectedTeam9' ng-options='obj9.name for obj9 in dataTim'></select>
+				<select ng-model='selectedPlayer9'>
+					<option ng-repeat='pemain in dataTim[selectedTeam9.id].player'>{{pemain}} </option>
+				</select>
+			</li><br>
+			<li>
+				<select ng-model='selectedTeam10' ng-options='obj10.name for obj10 in dataTim'></select>
+				<select ng-model='selectedPlayer10'>
+					<option ng-repeat='pemain in dataTim[selectedTeam10.id].player'>{{pemain}} </option>
+				</select>
+			</li><br>
+			<li>
+				<select ng-model='selectedTeam11' ng-options='obj11.name for obj11 in dataTim'></select>
+				<select ng-model='selectedPlayer11'>
+					<option ng-repeat='pemain in dataTim[selectedTeam11.id].player'>{{pemain}} </option>
+				</select>
+			</li><br>
+			
+		</ol
+	</form>
+</body>
+</html>
