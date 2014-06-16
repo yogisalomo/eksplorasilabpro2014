@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615025654) do
+ActiveRecord::Schema.define(version: 20140616072343) do
+
+  create_table "connections", force: true do |t|
+    t.string   "follower"
+    t.string   "following"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pesans", force: true do |t|
     t.string   "receiver"

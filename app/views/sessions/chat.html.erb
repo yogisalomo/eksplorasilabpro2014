@@ -33,20 +33,45 @@
 						<a href="/log_out"> <font color="white"> Logout </font> </a>
 					</li>
 					<li id ="searchbox">
-						<form>
-							<input type="text" placeholder="type username" name="searchUsername">
-							<a href="/search"> <input type="button" value="Search"> </a>
-						</form>
+						<%= form_tag search_path do %>
+							<%= text_field_tag :search, params[:search], placeholder: 'type username' %>
+							<%= submit_tag "Search" %>
+						<% end %>
 					</li>
 				</ul>
 			</nav>
 		</div>
 		
-		page ini : <br>
+		<!--page ini : <br>
 		Dapat menampilkan list user yang pernah di chat user tersebut <br>
 		Dapat menampilkan list user lain yang berlawanan jenis (ada menunya) <br>
 		Dapat memilih user untuk diajak chatting <br>
-		Dapat chatting dengan user tersebut <br>
+		Dapat chatting dengan user tersebut <br>-->
+		
+		<div class="chatmenu">
+			<ul>
+				<li> <a href=""> <font color=#FFA347> <b> Suggestions </b> </font> </a> </li>
+				<li> <a href=""> <b> Chat History </b> </a> </li>
+			</ul>
+		</div>
+		<br>
+		<div class="dialog">
+			<% for people in @suggestion %>
+				<div class="headermsg">
+					<b> Username&nbsp: </b> <%= people.username %>
+				</div>
+				
+				<div class="headermsg">
+					<b> Fullname&nbsp&nbsp: </b> <%= people.fullname %>
+				</div>
+				
+				<div class="headermsg">
+					<b> Gender&nbsp&nbsp&nbsp&nbsp&nbsp: </b> <%= people.gender %>
+				</div>
+				
+				<br>
+			<% end %>
+		</div>
 	</body>
 	
 </html>

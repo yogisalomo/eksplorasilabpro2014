@@ -25,12 +25,16 @@ Rails.application.routes.draw do
   get "friend" => "sessions#friend", :as => "friend"
   get "chat" => "sessions#chat", :as => "chat"
   get "message" => "sessions#current_inbox", :as => "message"
-  get "search" => "sessions#search", :as => "search"
+  
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
   get "composeMessage" => "sessions#composeMessage", :as => "composeMessage"
   get "sendSuccess" => "sessions#sendSuccess", :as => "sendSuccess"
+  
+  post "search" => "sessions#search", :as => "search"
+  post "addFriend" => "sessions#addFriend", :as => "addFriend"
+  post "deleteFriend" => "sessions#deleteFriend", :as => "deleteFriend"
   post "createPesan" => "sessions#createPesan", :as => "createPesan"
   post "userEdit" => "sessions#updateUser", :as => "userEdit"
   

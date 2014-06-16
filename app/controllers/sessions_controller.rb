@@ -67,10 +67,15 @@ class SessionsController < ApplicationController
 	end
 	
 	def search
+		@current_search ||= User.where(["username = ?", params[:search]]).select("*").all.order(fullname: :asc)
+		user = User.find(session[:user_id])
+		#@isfollow ||= Connection.where(["follower = ? and following = ?", user.username, params[:search]])
 		render 'search'
 	end
 	
 	def chat
+		user = User.find(session[:user_id])
+		@suggestion ||= User.where(["gender != ?",user.gender])
 		render 'chat'
 	end
 	
@@ -79,7 +84,27 @@ class SessionsController < ApplicationController
 	end
 	
 	def friend
+		user = User.find(session[:user_id])
+		@following ||= Connection.where(["follower = ?", user.username])
 		render 'friend'
+	end
+	
+	def addFriend
+		user = User.find(session[:user_id])			
+		connection = Connection.new
+		connection.follower = user.username
+		connection.following = params[:add]
+		connection.save
+		redirect_to friend_path
+	end
+	
+	def deleteFriend	
+		user = User.find(session[:user_id])
+		#@deleting = 
+		#Connection.destroy_all.(:follower => user.username, :following => params[:delete])
+		Connection.where(["follower = ? and following = ?", user.username, params[:delete]]).destroy_all
+		#@deleting.destroy
+		redirect_to friend_path
 	end
 	
 	def current_user

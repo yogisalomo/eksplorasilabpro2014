@@ -33,20 +33,43 @@
 						<a href="/log_out"> <font color="white"> Logout </font> </a>
 					</li>
 					<li id ="searchbox">
-						<form>
-							<input type="text" placeholder="type username" name="searchUsername">
-							<a href="/search"> <input type="button" value="Search"> </a>
-						</form>
+						<%= form_tag search_path do %>
+							<%= text_field_tag :search, params[:search], placeholder: 'type username' %>
+							<%= submit_tag "Search" %>
+						<% end %>
 					</li>
 				</ul>
 			</nav>
 		</div>
 		
-		page ini berisi : <br>
-		Daftar teman-teman user <br>
-		Dapat mengirimkan pesan privat kepada temannya <br>
-		Dapat membuka identitas kepada temannya <br>
-		Dapat menyusun rencana pertemuan dengan temannya <br>
+		<!--page ini berisi : Daftar teman-teman user <br> Dapat mengirimkan pesan privat kepada temannya <br> Dapat membuka identitas kepada temannya <br>
+		Dapat menyusun rencana pertemuan dengan temannya <br> -->
+		
+		<div class="dialog">
+			<% if @following.blank? %>
+				<b> You have no friend </b>
+			<% else %>
+				<b> Your Friends </b> <br> <br>
+				<% for people in @following %>
+					<div class="headermsg">
+						<% @info = User.find_by_username(people.following) %>
+						<% if @info %>
+							<b> Username&nbsp&nbsp: </b> <%= @info.username %> <br>
+							<b> Fullname&nbsp&nbsp&nbsp: </b> <%= @info.fullname %> <br>
+							<b> City&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: </b> <%= @info.city %> <br>
+						<% end %>
+					</div>
+					
+					<div class="headermsg2">
+						<%= form_tag deleteFriend_path do %>
+							<%= text_field_tag :delete, params[:delete], placeholder: 'delete', value:people.following %>
+							<%= submit_tag "Unfriend" %>
+						<% end %>
+					</div>
+					<br>
+				<% end %>
+			<% end %>
+		</div>
 	</body>
 	
 </html>

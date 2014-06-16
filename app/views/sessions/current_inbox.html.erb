@@ -33,16 +33,16 @@
 						<a href="/log_out"> <font color="white"> Logout </font> </a>
 					</li>
 					<li id ="searchbox">
-						<form>
-							<input type="text" placeholder="type username" name="searchUsername">
-							<a href="/search"> <input type="button" value="Search"> </a>
-						</form>
+						<%= form_tag search_path do %>
+							<%= text_field_tag :search, params[:search], placeholder: 'type username' %>
+							<%= submit_tag "Search" %>
+						<% end %>
 					</li>
 				</ul>
 			</nav>
 		</div>
 		
-		<div class="inbox">
+		<div class="dialog">
 			<a href = "/composeMessage"> Compose </a> <br> <br>
 			
 			<% if @current_inbox.blank? %>
