@@ -47,15 +47,6 @@ function OnSubmitForm()
 	</nav>
 	
 {% if username %}
-	<form name="search" onSubmit="return OnSubmitForm();">
-		{% csrf_token %}
-		<input type="text" name="query" id="query"/>
-		<input type="submit" value="search"/><br>
-		<input type="radio" name="radiosearch" checked="checked"/>People
-		<input type="radio" name="radiosearch" />Book
-	</form>
-	<a href="{% url 'pinjemdong:login' %}">Log Out</a><br>
-	<a href="{% url 'pinjemdong:myprofile' username %}">Profile</a><br>
 	<a href="{% url 'pinjemdong:editbook' username None %}">Add New Book</a><br>
 	hello {{ username }}
 {% else %}

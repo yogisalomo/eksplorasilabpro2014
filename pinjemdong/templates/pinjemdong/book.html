@@ -1,22 +1,5 @@
 {% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'pinjemdong/bootstrap.min.css' %}" />
-<SCRIPT language="JavaScript">
-function OnSubmitForm()
-{
-  if(document.search.radiosearch[0].checked == true)
-  {
-    document.search.action ="{% url 'pinjemdong:search' username %}";
-    document.search.method ="post"
-  }
-  else
-  if(document.search.radiosearch[1].checked == true)
-  {
-    document.search.action ="{% url 'pinjemdong:searchbook' username %}";
-    document.search.method ="post"
-  }
-  return true;
-}
-</SCRIPT>
 
 <title>Pinjemdong</title>
 <body>
@@ -32,26 +15,18 @@ function OnSubmitForm()
    				<a class="navbar-brand" href="{% url 'pinjemdong:home' username %}">Home</a>
 				<a class="navbar-brand" href="{% url 'pinjemdong:myprofile' username %}">Profile</a>
 				<a class="navbar-brand" href="{% url 'pinjemdong:login' %}">Log Out</a>
-				<form class="navbar-form navbar-left" role="search" name="search" onSubmit="return OnSubmitForm();">
-					{% csrf_token %}
-			        <div class="form-group">
-			          	<input type="text" class="form-control" placeholder="Search" name="query" id="query">
-			        </div>
-			        <button type="submit" class="btn btn-default">Submit</button>
-			        <input type="radio" name="radiosearch" checked="checked"/>People
-					<input type="radio" name="radiosearch" />Book
-		      	</form>
+				
 			</div>
 		</div>
 	</nav>
-	{{ book.title }}
+	<h1>{{ book.title }}</h1>
 	<br><br>
 	
-	Title : {{ book.title }} <br>
-	Writer : {{ book.writer }} <br>
-	Published by : {{ book.publisher }} <br>
-	Place : {{ book.place }} <br>
-	Year : {{ book.year }} <br>
+	<p>Title : {{ book.title }} </p>
+	<p>Writer : {{ book.writer }} </p>
+	<p>Published by : {{ book.publisher }} </p>
+	<p>Place : {{ book.place }} </p>
+	<p>Year : {{ book.year }} </p>
 	
 	
 	<a href="{% url 'pinjemdong:addbook' username book.title %}">Add to My Book</a>

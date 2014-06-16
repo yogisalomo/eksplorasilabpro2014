@@ -8,7 +8,7 @@ def login(request):
     return render(request, 'pinjemdong/login.html')
 
 def home(request, username):
-    return render(request, 'pinjemdong/index.html', { 'username' : username})
+    return render(request, 'pinjemdong/index.html', { 'username' : username })
 
 def index(request, message):
     return render(request, 'pinjemdong/index.html', { 'message' : message })
