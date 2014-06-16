@@ -21,6 +21,12 @@ public class MoveScript : MonoBehaviour
 
 	private Vector2 movement;
 
+	private Vector2 lastdirection;
+
+	private bool entered = false;
+
+	private bool mentok = false;
+
 	private bool moved = false;
 
 	void Update()
@@ -35,6 +41,8 @@ public class MoveScript : MonoBehaviour
 			else{
 				moved = true;
 				movement = new Vector2(speed.x * direction.x, speed.y * direction.y);
+				lastdirection = new Vector2();
+				lastdirection.Set (direction.x,direction.y);
 			}
 				}
 	}
@@ -49,16 +57,23 @@ public class MoveScript : MonoBehaviour
 		string name = hit.gameObject.name;
 		tempMov = movement;
 		movement = new Vector2 (0, 0);
-		if (name == "player") {
+		if ((name == "player") && (!mentok)) {
+						mentok = true;
 						if (direction.Equals (new Vector2 (-1, 0))) {
+								transform.position.x += 0.2f;
 								direction.Set (0, 1);
 						} else if (direction.Equals (new Vector2 (0, 1))) {
+								transform.position.y -= 0.2f;
 								direction.Set (1, 0);
 						} else if (direction.Equals (new Vector2 (1, 0))) {
+								transform.position.x -= 0.2f;
 								direction.Set (0, -1);
 						} else if (direction.Equals (new Vector2 (0, -1))) {
 								direction.Set (-1, 0);
+								transform.position.y += 0.2f;
 						}
+		} else if ((lastdirection.x == direction.x && lastdirection.y == direction.y) && mentok) {
+			direction.Set (0,0);
 				}
 	}
 }

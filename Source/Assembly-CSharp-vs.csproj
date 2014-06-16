@@ -47,9 +47,12 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\HealthScript.cs" />
+     <Compile Include="Assets\MissileMoveScript.cs" />
      <Compile Include="Assets\Scripts\MoveScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScripts.cs" />
+     <Compile Include="Assets\ShotScript.cs" />
      <Compile Include="Assets\Spawner.cs" />
+     <Compile Include="Assets\WeaponScript.cs" />
      <None Include="Assets\Standard Assets\Water (Basic)\Sources\Shaders\FX-Water Simple.shader" />
   </ItemGroup>
   <ItemGroup>
