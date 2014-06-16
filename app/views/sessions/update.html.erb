@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Edit Profile </title>
+	</head>
+	
+	<body class="mbody">
+		<div class="menu">
+			<nav>
+				<ul>
+					<li> 
+						<span><font color=#fff> biro </font></span> <span><font color=#FF0000>Jodoh</font></span>
+					</li>
+					<li>
+						<font color=#fff> | </font>
+					</li>
+					<li> 
+						<a href="/profile"> <font color=#FFA347> MyProfile </font>  </a>
+					</li>
+					<li>
+						<a href="wall"> <font color="white"> Wall </font>  </a>
+					</li>
+					<li>
+						<a href="/friend"> <font color="white"> Friends </font> </a>
+					</li>
+					<li>
+						<a href="/message"> <font color="white"> Message </font> </a>
+					</li>
+					<li>
+						<a href="/chat"> <font color="white"> Chat </font> </a>
+					</li>
+					<li>
+						<a href="/log_out"> <font color="white"> Logout </font> </a>
+					</li>
+					<li id ="searchbox">
+						<%= form_tag search_path do %>
+							<%= text_field_tag :search, params[:search], placeholder: 'type username' %>
+							<%= submit_tag "Search" %>
+						<% end %>
+					</li>
+				</ul>
+			</nav>
+		
+		<div class = "edit">
+			<%= form_tag userEdit_path do %>
+				<%= text_field_tag :fullname, params[:fullname], placeholder: 'fullname', value:current_user.fullname  %> Fullname <br>
+				<%= text_field_tag :birthplace, params[:birthplace], placeholder: 'place of birth',value:current_user.birthplace %> Birthplace <br>
+				<%= text_field_tag :birthdate, params[:birthdate], placeholder: 'date of birth dd-mm-yyyy',value:current_user.birthdate %> Birthdate <br>
+				<%= text_field_tag :city, params[:city], placeholder: 'city',value:current_user.city %> City <br> 
+				<%= text_field_tag :hobby, params[:hobby], placeholder: 'hobby',value:current_user.hobby %> Hobby <br> <br> <br> <br>
+				<%= submit_tag "save" %>
+			<% end %>
+		</div>
+	</body>
+	
+</html>

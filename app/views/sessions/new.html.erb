@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="UTF-8">
+	  <title> Index </title>
+	</head>
+	
+	<body>
+	  <div class="body"> </div>
+			<div class="grad"></div>
+			<div class="header">
+				<div>biro<span>Jodoh</span><br><div>Where love fate met</div></div>
+			</div>
+			
+			<br>
+			<div class="login">
+				<%= form_tag sessions_path do %>
+					
+					<%= text_field_tag :username, params[:username], placeholder: 'username' %>
+					
+					<%= password_field_tag :password, params[:password], placeholder: 'password' %>
+					<p class="button"><%= submit_tag "Log in" %></p>
+				<% end %>
+			</div>
+			
+			<div class="footer">
+				Don't have an account yet? &nbsp &nbsp
+				<a href="/users/new"> Register </a>
+			</div>
+	</body>
+
+</html>
