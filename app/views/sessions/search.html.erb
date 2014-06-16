@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Search </title>
+	</head>
+	
+	<body class="mbody">
+		<div class="menu">
+			<nav>
+				<ul>
+					<li> 
+						<span><font color=#fff> biro </font></span> <span><font color=#FF0000>Jodoh</font></span>
+					</li>
+					<li>
+						<font color=#fff> | </font>
+					</li>
+					<li> 
+						<a href="/profile"> <font color="white"> MyProfile </font>  </a>
+					</li>
+					<li>
+						<a href="wall"> <font color="white"> Wall </font>  </a>
+					</li>
+					<li>
+						<a href="/friend"> <font color="white"> Friends </font> </a>
+					</li>
+					<li>
+						<a href="/message"> <font color="white"> Message </font> </a>
+					</li>
+					<li>
+						<a href="/chat"> <font color="white"> Chat </font> </a>
+					</li>
+					<li>
+						<a href="/log_out"> <font color="white"> Logout </font> </a>
+					</li>
+					<li id ="searchbox">
+						<%= form_tag search_path do %>
+							<%= text_field_tag :search, params[:search], placeholder: 'type username' %>
+							<%= submit_tag "Search" %>
+						<% end %>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		
+		<!--page ini berisi tentang daftar user yang di search berdasarkan username-->
+		<div class="dialog">
+			<% if @current_search.blank? %>
+				<b> No user with such username </b>
+			<% else %>
+				<% for people in @current_search %>
+					<div class="headermsg">
+						<b> Username : </b> <%= people.username %> <br>
+						<b> Fullname &nbsp: </b> <%= people.fullname %> <br>
+					</div>
+					
+					<% if people.username==current_user.username %>
+						<div class="headermsg">
+							This is you
+						</div>
+					<% else %>
+						<div class="headermsg2">
+							<% @isFollow = Connection.where(["follower = ? and following = ?", current_user.username, people.username]) %>
+							<% if @isFollow.blank? %>
+								<%= form_tag addFriend_path do %>
+									<%= text_field_tag :add, params[:add], placeholder: 'add', value:people.username %>
+									<%= submit_tag "Add Friend" %>
+								<% end %>
+							<% else %>
+								<div class="headermsg"> <b> Already friend with this user </b> </div>
+								<%= form_tag deleteFriend_path do %>
+									<%= text_field_tag :delete, params[:delete], placeholder: 'delete', value:people.username %>
+									<%= submit_tag "Unfriend" %>
+								<% end %>
+							<% end %>
+						</div>
+					<% end %>
+					<br>
+				<% end %>
+			<% end %>
+		</div>
+	</body>
+	
+</html>

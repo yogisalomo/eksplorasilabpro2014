@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="UTF-8">
+	  <title> New User </title>
+	</head>
+
+	<body>
+	  <div class="body"> </div>
+			<div class="grad"></div>
+			<div class="header">
+				<div>biro<span>Jodoh</span><br><div>Registration</div></div>
+			</div>
+			<br>
+			<div class="registration">
+				<%= form_for :users, url: users_path do |f| %>
+					<%= f.text_field :username, placeholder: 'username' %>
+					<%= f.password_field :password, placeholder: 'password' %>
+					<%= f.text_field :fullname, placeholder: 'fullname' %>
+					<%= f.text_field :birthplace, placeholder: 'place of birth' %>
+					<%= f.text_field :birthdate, placeholder: 'date of birth dd-mm-yyyy' %>
+					<%= f.text_field :city, placeholder: 'city' %>
+					<%= f.text_field :hobby, placeholder: 'hobby' %>
+					<%= f.text_field :gender, placeholder: 'gender (M/F)' %>
+					<%= f.submit "Sign Up" %>
+				<% end %>
+			</div>
+			
+			<div class="footerRegister">
+				<a href="/sessions/new"> Cancel </a>
+			</div>
+	</body>
+
+</html>

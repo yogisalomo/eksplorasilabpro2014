@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Message </title>
+	</head>
+	
+	<body class="mbody">
+		<div class="menu">
+			<nav>
+				<ul>
+					<li> 
+						<span><font color=#fff> biro </font></span> <span><font color=#FF0000>Jodoh</font></span>
+					</li>
+					<li>
+						<font color=#fff> | </font>
+					</li>
+					<li> 
+						<a href="/profile"> <font color="white"> MyProfile </font>  </a>
+					</li>
+					<li>
+						<a href="wall"> <font color="white"> Wall </font>  </a>
+					</li>
+					<li>
+						<a href="/friend"> <font color="white"> Friends </font> </a>
+					</li>
+					<li>
+						<a href="/message"> <font color=#FFA347> Message </font> </a>
+					</li>
+					<li>
+						<a href="/chat"> <font color="white"> Chat </font> </a>
+					</li>
+					<li>
+						<a href="/log_out"> <font color="white"> Logout </font> </a>
+					</li>
+					<li id ="searchbox">
+						<%= form_tag search_path do %>
+							<%= text_field_tag :search, params[:search], placeholder: 'type username' %>
+							<%= submit_tag "Search" %>
+						<% end %>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		
+		<div class="dialog">
+			<a href = "/composeMessage"> Compose </a> <br> <br>
+			
+			<% if @current_inbox.blank? %>
+				<div class="headermsg">
+					Inbox Empty
+				</div>
+			<% else %>
+				<% for pesan in @current_inbox %>
+					<div class="headermsg">
+						<b> Sender : </b> <%= pesan.sender %>
+					</div>
+					<div class="headermsg">
+						<b> Time &nbsp&nbsp&nbsp&nbsp: </b> <%= pesan.created_at %>
+					</div>
+					<div class="messagetext">
+						<%= pesan.text %>
+					</div>
+					<br> <br>
+				<% end %>
+			<% end %>
+		</div>
+	</body>
+	
+</html>
