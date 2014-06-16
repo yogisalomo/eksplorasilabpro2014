@@ -1,0 +1,15 @@
+{{ book.title }}
+<br><br>
+
+<a href="{% url 'pinjemdong:login' %}">Log Out</a><br>
+<a href="{% url 'pinjemdong:myprofile' username %}">My Profile</a><br>
+
+Title : {{ book.title }} <br>
+Writer : {{ book.writer }} <br>
+Published by : {{ book.publisher }} <br>
+Place : {{ book.place }} <br>
+Year : {{ book.year }} <br>
+
+
+<a href="{% url 'pinjemdong:addbook' username book.title %}">Add to My Book</a>
+<a href="{% url 'pinjemdong:editbook' username book.title %}">Edit Book Info</a>

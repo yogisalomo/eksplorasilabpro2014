@@ -1,0 +1,37 @@
+My Profile
+<br><br>
+
+<a href="{% url 'pinjemdong:login' %}">Log Out</a><br>
+
+Username : {{ user.username }} <br>
+Name : {{ user.name }} <br>
+Address : {{ user.address }} <br>
+Favorite Book : {{ user.fav_book }} <br>
+Favorite Genre : {{ user.fav_genre }} <br>
+
+<br>
+Book List:<br>
+{% for book in books %}
+	<a href="{% url 'pinjemdong:book' user.username book.book.title %}">{{ book.book.title }}</a><br>
+	{% if book.available %}  
+		Book Available<br>
+		<form action="{% url 'pinjemdong:acceptrequest' user.username  book.book.title %}" method="post">
+		{% csrf_token %}
+		{% for requester in requesters %}
+			{% if requester.book.title == book.book.title %}
+				<input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ requester.requester.name }}"/>
+				<label for="choice{{ forloop.counter }}">{{ requester.requester.name }}</label>
+			{% endif %}
+		{% endfor %}
+		{% if requesters %}
+			<input type="submit" value="Accept request"/>
+		{% endif %}
+		
+		</form>
+	{% else %}
+		Book Not Available<br>
+	{% endif %}
+	
+{% endfor %}
+
+<a href="{% url 'pinjemdong:editpage' user.username %}">Edit Profile</a>

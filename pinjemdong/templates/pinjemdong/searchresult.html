@@ -1,0 +1,3 @@
+{% for people in result %}
+	<a href="{% url 'pinjemdong:profile' username people.username %}">{{ people.name }}</a><br>
+{% endfor %}

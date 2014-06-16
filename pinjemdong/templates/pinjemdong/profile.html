@@ -1,0 +1,26 @@
+{{ people.name }} Profile
+<br><br>
+
+<a href="{% url 'pinjemdong:login' %}">Log Out</a><br>
+<a href="{% url 'pinjemdong:myprofile' username %}">My Profile</a><br>
+
+
+Username : {{ people.username }} <br>
+Name : {{ people.name }} <br>
+Address : {{ people.address }} <br>
+Favorite Book : {{ people.fav_book }} <br>
+Favorite Genre : {{ people.fav_genre }} <br>
+
+<br>
+Book List:<br>
+{% for book in books %}
+	<a href="{% url 'pinjemdong:book' username book.book.title %}">{{ book.book.title }}</a><br>
+	{% if book.available %}  
+		Book Available <a href="{% url 'pinjemdong:sendrequest' username people.username book.book.title %}">Send Borrow Request</a>
+		<br>
+	{% else %}
+		Book Not Available<br>
+	{% endif %}
+	
+{% endfor %}
+<a href="{% url 'pinjemdong:add' username people.username %}">Add as Friend</a>

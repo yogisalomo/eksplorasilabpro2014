@@ -1,0 +1,13 @@
+{{ message }}
+<form action="{% url 'pinjemdong:newAccount' %}" method="post">
+	{% csrf_token %}
+	<label for="name">Name</label>
+	<input type="text" name="name" id="name"/><br>
+	<label for="address">Address</label>
+	<input type="text" name="address" id="address"/><br>
+	<label for="username">Username</label>
+	<input type="text" name="username" id="username"/><br>
+	<label for="password">Password</label>
+	<input type="password" name="password" id="password"/><br>
+	<input type="submit"/>
+</form>

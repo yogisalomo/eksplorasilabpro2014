@@ -1,0 +1,3 @@
+{% for book in result %}
+	 <a href="{% url 'pinjemdong:book' username book.title %}">{{ book.title }}</a><br>
+{% endfor %}
