@@ -995,3 +995,42 @@
 #6 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
 #7 /opt/lampp/htdocs/ClickandBuy/index.php(109): Kohana_Request->execute()
 #8 {main}
+2014-06-16 11:44:29 --- ERROR: Database_Exception [ 1062 ]: [1062] Duplicate entry 'andarias' for key 'PRIMARY' ( INSERT INTO `user` (`username`, `password`, `level 3`, `first_name`, `surname`, `address`, `active`, `email`) VALUES ('andarias', 'andarias', 3, 'anda', 'rias', 'bdg', 0, 'tomoaquino@gmail.com') ) ~ MODPATH\database\classes\kohana\database\mysqli.php [ 182 ]
+2014-06-16 11:44:29 --- STRACE: Database_Exception [ 1062 ]: [1062] Duplicate entry 'andarias' for key 'PRIMARY' ( INSERT INTO `user` (`username`, `password`, `level 3`, `first_name`, `surname`, `address`, `active`, `email`) VALUES ('andarias', 'andarias', 3, 'anda', 'rias', 'bdg', 0, 'tomoaquino@gmail.com') ) ~ MODPATH\database\classes\kohana\database\mysqli.php [ 182 ]
+--
+#0 C:\xampp\htdocs\ClickandBuy\modules\database\classes\kohana\database\query.php(245): Kohana_Database_MySQLi->query(2, 'INSERT INTO `us...', false, Array)
+#1 C:\xampp\htdocs\ClickandBuy\application\classes\model\user.php(69): Kohana_Database_Query->execute()
+#2 C:\xampp\htdocs\ClickandBuy\application\classes\controller\form.php(14): Model_User::sign_up(Array)
+#3 [internal function]: Controller_Form->action_sign_up()
+#4 C:\xampp\htdocs\ClickandBuy\system\classes\kohana\request\client\internal.php(116): ReflectionMethod->invoke(Object(Controller_Form))
+#5 C:\xampp\htdocs\ClickandBuy\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#6 C:\xampp\htdocs\ClickandBuy\system\classes\kohana\request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#7 C:\xampp\htdocs\ClickandBuy\index.php(109): Kohana_Request->execute()
+#8 {main}
+2014-06-16 11:48:08 --- ERROR: HTTP_Exception_404 [ 404 ]: The requested URL verify was not found on this server. ~ SYSPATH\classes\kohana\request\client\internal.php [ 87 ]
+2014-06-16 11:48:08 --- STRACE: HTTP_Exception_404 [ 404 ]: The requested URL verify was not found on this server. ~ SYSPATH\classes\kohana\request\client\internal.php [ 87 ]
+--
+#0 C:\xampp\htdocs\ClickandBuy\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#1 C:\xampp\htdocs\ClickandBuy\system\classes\kohana\request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#2 C:\xampp\htdocs\ClickandBuy\index.php(109): Kohana_Request->execute()
+#3 {main}
+2014-06-16 12:32:40 --- ERROR: ErrorException [ 8 ]: Undefined index: category ~ APPPATH\classes\controller\browse.php [ 7 ]
+2014-06-16 12:32:40 --- STRACE: ErrorException [ 8 ]: Undefined index: category ~ APPPATH\classes\controller\browse.php [ 7 ]
+--
+#0 C:\xampp\htdocs\ClickandBuy\application\classes\controller\browse.php(7): Kohana_Core::error_handler(8, 'Undefined index...', 'C:\xampp\htdocs...', 7, Array)
+#1 [internal function]: Controller_Browse->action_index()
+#2 C:\xampp\htdocs\ClickandBuy\system\classes\kohana\request\client\internal.php(116): ReflectionMethod->invoke(Object(Controller_Browse))
+#3 C:\xampp\htdocs\ClickandBuy\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#4 C:\xampp\htdocs\ClickandBuy\system\classes\kohana\request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#5 C:\xampp\htdocs\ClickandBuy\index.php(109): Kohana_Request->execute()
+#6 {main}
+2014-06-16 12:33:25 --- ERROR: ErrorException [ 8 ]: Undefined index: category ~ APPPATH\classes\controller\browse.php [ 7 ]
+2014-06-16 12:33:25 --- STRACE: ErrorException [ 8 ]: Undefined index: category ~ APPPATH\classes\controller\browse.php [ 7 ]
+--
+#0 C:\xampp\htdocs\ClickandBuy\application\classes\controller\browse.php(7): Kohana_Core::error_handler(8, 'Undefined index...', 'C:\xampp\htdocs...', 7, Array)
+#1 [internal function]: Controller_Browse->action_index()
+#2 C:\xampp\htdocs\ClickandBuy\system\classes\kohana\request\client\internal.php(116): ReflectionMethod->invoke(Object(Controller_Browse))
+#3 C:\xampp\htdocs\ClickandBuy\system\classes\kohana\request\client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#4 C:\xampp\htdocs\ClickandBuy\system\classes\kohana\request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#5 C:\xampp\htdocs\ClickandBuy\index.php(109): Kohana_Request->execute()
+#6 {main}

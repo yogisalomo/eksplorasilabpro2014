@@ -4,7 +4,7 @@
 	<?php if (is_array($category)) { ?>
 		<?php echo Form::open(URL::site().'../browse/', array('id' => 'signup', 'enctype' => 'multipart/form-data')); ?>
 		<select id="category-select" name="category">
-        <?php foreach ($category as $cat) { 
+        <?php if ($category !== null) foreach ($category as $cat) { 
             echo '<option value="'.$cat["category"].'">'.$cat["category"].'</option>';
         }?>
         </select>

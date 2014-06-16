@@ -3,11 +3,12 @@
 class Model_User {
 	
 	public static $user_table = 'user';
+	public static $register_table = 'registrations';
 	public static $wishlist_table = 'wishlist';
 	// retrive the username
 	public static function sign_in($username, $password) {
 		foreach (DB::select()
-			->from(Model_User::$user_table)
+			->from(Model_User::$register_table)
 			->where('username', '=', $username)
 			->where('password', '=', $password)
 			->where('active', '=', 1)
@@ -169,7 +170,7 @@ class Model_User {
 		)->execute();
 
 		require('C:\xampp\htdocs\PHPMailer\class.phpmailer.php');
-		$from = "tomoaquino@gmail.com";
+		$from = "clickandbuykohana@gmail.com";
 		$mail = new PHPMailer();
 		$mail->IsSMTP();
 		$mail->IsHTML(true);
@@ -179,8 +180,8 @@ class Model_User {
 		$mail->SMTPSecure = 'ssl';					// don't forget to enable 'extension=php_openssl.dll' and 'SMTP localhost' in php.ini
 		$mail->Port       =  465;                   // set the SMTP port (gmail port)
 		
-		$mail->Username   = "tomoaquino@gmail.com"; // SMTP  username
-		$mail->Password   = "326159487"; 		 	// SMTP password
+		$mail->Username   = "clickandbuykohana@gmail.com"; // SMTP  username
+		$mail->Password   = "clickandbuykohanalabpro"; 		 	// SMTP password
 		$mail->SetFrom($from, "From ClickandBuy");
 		$mail->Subject    = "ClickandBuy Email Verification";
 		$body = '
