@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^(?P<username>.+)/add/(?P<peoplename>.+)/$', views.add, name='add'),
     url(r'^(?P<username>.+)/addbook/(?P<booktitle>.+)/$', views.addbook, name='addbook'),
     url(r'^(?P<username>.+)/req/(?P<owner>.+)/(?P<booktitle>.+)$', views.request ,name='sendrequest'),
-    url(r'^(?P<username>.+)/acc/(?P<booktitle>.+)$', views.acceptrequest, name='acceptrequest'),
+    url(r'^(?P<username>.+)/acc/(?P<booktitle>.+)/$', views.acceptrequest, name='acceptrequest'),
+    url(r'^(?P<username>.+)/wrev/(?P<booktitle>.+)/$', views.review, name='review'),
+    url(r'^(?P<username>.+)/saverev/(?P<booktitle>.+)/$', views.savereview, name='savereview'),
 )
 

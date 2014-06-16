@@ -1,5 +1,5 @@
 from django.contrib import admin
-from pinjemdong.models import Account, Book, Book_list, Friend_list, Password, Synopsis, Rating, Request
+from pinjemdong.models import Account, Book, Book_list, Friend_list, Password, Synopsis, Rating, Request, Review
 
 # Register your models here.
 class AccountLayout(admin.ModelAdmin):
@@ -25,6 +25,9 @@ class RatingLayout(admin.ModelAdmin):
     
 class RequestLayout(admin.ModelAdmin):
     list_display = ['book', 'owner', 'requester']
+    
+class ReviewLayout(admin.ModelAdmin):
+    list_display = ['book', 'writer', 'review']
 
     
 admin.site.register(Account, AccountLayout)
@@ -35,3 +38,4 @@ admin.site.register(Password, PasswordLayout)
 admin.site.register(Synopsis, SynopsisLayout)
 admin.site.register(Rating, RatingLayout)
 admin.site.register(Request, RequestLayout)
+admin.site.register(Review, ReviewLayout)

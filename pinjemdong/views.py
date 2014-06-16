@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from pinjemdong.models import Account, Book, Book_list, Friend_list, Password, Synopsis, Rating, Request
+from pinjemdong.models import Account, Book, Book_list, Friend_list, Password, Synopsis, Rating, Request, Review
 from django.http.response import HttpResponse
 
 # Create your views here.
@@ -145,6 +145,18 @@ def acceptrequest(request, username, booktitle):
             message = 'Request error'
             return render(request, 'pinjemdong/index.html', { 'username' : username, 'message' : message })
     
+def review(request, username, booktitle):
+    return render(request, 'pinjemdong/review.html', { 'username' : username, 'booktitle' : booktitle })
+
+def savereview(request, username, booktitle):
+    if request.method == 'POST':
+        bookvar = Book.objects.filter(title__exact=booktitle)[0]
+        writervar = Account.objects.filter(username__exact=username)[0]
+        review = request.POST['textreview'] 
+        entry = Review(book=bookvar, writer=writervar, review=review)
+        entry.save()
+        message = 'Review succesfully added'
+        return render(request, 'pinjemdong/index.html', { 'username' : username, 'message' : message })
 
 def signup(request):
     return render(request, 'pinjemdong/signup.html')

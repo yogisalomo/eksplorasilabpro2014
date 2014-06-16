@@ -49,4 +49,8 @@ class Request(models.Model):
     owner = models.ForeignKey(Account, related_name='owner_set')
     requester = models.ForeignKey(Account, related_name='requester_set')
 
+class Review(models.Model):
+    book = models.ForeignKey(Book)
+    writer = models.ForeignKey(Account)
+    review = models.CharField(max_length=3000)
     

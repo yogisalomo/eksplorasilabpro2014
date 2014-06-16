@@ -1,0 +1,9 @@
+Write Review for {{ booktitle }}
+<br><br>
+
+<form action="{% url 'pinjemdong:savereview' username booktitle %}" method="post">
+	{% csrf_token %}
+	<label for="textreview">Review</label>
+	<input type="text" name="textreview" id="textreview"/>
+	<input type="submit">
+</form>

@@ -13,3 +13,4 @@ Year : {{ book.year }} <br>
 
 <a href="{% url 'pinjemdong:addbook' username book.title %}">Add to My Book</a>
 <a href="{% url 'pinjemdong:editbook' username book.title %}">Edit Book Info</a>
+<a href="{% url 'pinjemdong:review' username book.title %}">Write Review</a>
