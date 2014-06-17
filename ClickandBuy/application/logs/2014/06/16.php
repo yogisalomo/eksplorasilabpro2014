@@ -1034,3 +1034,127 @@
 #4 C:\xampp\htdocs\ClickandBuy\system\classes\kohana\request.php(1164): Kohana_Request_Client->execute(Object(Request))
 #5 C:\xampp\htdocs\ClickandBuy\index.php(109): Kohana_Request->execute()
 #6 {main}
+2014-06-16 22:50:17 --- ERROR: ErrorException [ 4 ]: syntax error, unexpected 'end' (T_STRING) ~ APPPATH/classes/model/user.php [ 203 ]
+2014-06-16 22:50:17 --- STRACE: ErrorException [ 4 ]: syntax error, unexpected 'end' (T_STRING) ~ APPPATH/classes/model/user.php [ 203 ]
+--
+#0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main}
+2014-06-16 22:59:13 --- ERROR: ErrorException [ 8192 ]: mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead ~ APPPATH/views/verify.php [ 2 ]
+2014-06-16 22:59:13 --- STRACE: ErrorException [ 8192 ]: mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead ~ APPPATH/views/verify.php [ 2 ]
+--
+#0 [internal function]: Kohana_Core::error_handler(8192, 'mysql_connect()...', '/opt/lampp/htdo...', 2, Array)
+#1 /opt/lampp/htdocs/ClickandBuy/application/views/verify.php(2): mysql_connect('localhost', 'root', '')
+#2 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(61): include('/opt/lampp/htdo...')
+#3 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(343): Kohana_View::capture('/opt/lampp/htdo...', Array)
+#4 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(228): Kohana_View->render()
+#5 /opt/lampp/htdocs/ClickandBuy/application/views/template.php(33): Kohana_View->__toString()
+#6 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(61): include('/opt/lampp/htdo...')
+#7 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(343): Kohana_View::capture('/opt/lampp/htdo...', Array)
+#8 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/controller/template.php(44): Kohana_View->render()
+#9 [internal function]: Kohana_Controller_Template->after()
+#10 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client/internal.php(119): ReflectionMethod->invoke(Object(Controller_Verify))
+#11 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#12 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#13 /opt/lampp/htdocs/ClickandBuy/index.php(109): Kohana_Request->execute()
+#14 {main}
+2014-06-16 23:25:38 --- ERROR: ErrorException [ 2 ]: Missing argument 3 for Model_User::verification_step(), called in /opt/lampp/htdocs/ClickandBuy/application/classes/controller/form.php on line 15 and defined ~ APPPATH/classes/model/user.php [ 181 ]
+2014-06-16 23:25:38 --- STRACE: ErrorException [ 2 ]: Missing argument 3 for Model_User::verification_step(), called in /opt/lampp/htdocs/ClickandBuy/application/classes/controller/form.php on line 15 and defined ~ APPPATH/classes/model/user.php [ 181 ]
+--
+#0 /opt/lampp/htdocs/ClickandBuy/application/classes/model/user.php(181): Kohana_Core::error_handler(2, 'Missing argumen...', '/opt/lampp/htdo...', 181, Array)
+#1 /opt/lampp/htdocs/ClickandBuy/application/classes/controller/form.php(15): Model_User::verification_step('opelhoward@gmai...', '01161aaa0b6d134...')
+#2 [internal function]: Controller_Form->action_sign_up()
+#3 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client/internal.php(116): ReflectionMethod->invoke(Object(Controller_Form))
+#4 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#5 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#6 /opt/lampp/htdocs/ClickandBuy/index.php(109): Kohana_Request->execute()
+#7 {main}
+2014-06-16 23:32:23 --- ERROR: ErrorException [ 8 ]: Undefined index: category ~ APPPATH/classes/controller/browse.php [ 7 ]
+2014-06-16 23:32:23 --- STRACE: ErrorException [ 8 ]: Undefined index: category ~ APPPATH/classes/controller/browse.php [ 7 ]
+--
+#0 /opt/lampp/htdocs/ClickandBuy/application/classes/controller/browse.php(7): Kohana_Core::error_handler(8, 'Undefined index...', '/opt/lampp/htdo...', 7, Array)
+#1 [internal function]: Controller_Browse->action_index()
+#2 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client/internal.php(116): ReflectionMethod->invoke(Object(Controller_Browse))
+#3 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#4 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#5 /opt/lampp/htdocs/ClickandBuy/index.php(109): Kohana_Request->execute()
+#6 {main}
+2014-06-16 23:35:02 --- ERROR: Database_Exception [ 1146 ]: [1146] Table 'ClickandBuy.registrations' doesn't exist ( SELECT * FROM `registrations` WHERE `username` = 'opelhoward' AND `password` = 'howard' AND `active` = 1 ) ~ MODPATH/database/classes/kohana/database/mysqli.php [ 182 ]
+2014-06-16 23:35:02 --- STRACE: Database_Exception [ 1146 ]: [1146] Table 'ClickandBuy.registrations' doesn't exist ( SELECT * FROM `registrations` WHERE `username` = 'opelhoward' AND `password` = 'howard' AND `active` = 1 ) ~ MODPATH/database/classes/kohana/database/mysqli.php [ 182 ]
+--
+#0 /opt/lampp/htdocs/ClickandBuy/modules/database/classes/kohana/database/query.php(245): Kohana_Database_MySQLi->query(1, 'SELECT * FROM `...', false, Array)
+#1 /opt/lampp/htdocs/ClickandBuy/application/classes/model/user.php(15): Kohana_Database_Query->execute()
+#2 /opt/lampp/htdocs/ClickandBuy/application/classes/controller/form.php(31): Model_User::sign_in('opelhoward', 'howard')
+#3 [internal function]: Controller_Form->action_sign_in()
+#4 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client/internal.php(116): ReflectionMethod->invoke(Object(Controller_Form))
+#5 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#6 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#7 /opt/lampp/htdocs/ClickandBuy/index.php(109): Kohana_Request->execute()
+#8 {main}
+2014-06-16 23:38:52 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH/views/verify.php [ 3 ]
+2014-06-16 23:38:52 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH/views/verify.php [ 3 ]
+--
+#0 /opt/lampp/htdocs/ClickandBuy/application/views/verify.php(3): Kohana_Core::error_handler(2, 'Invalid argumen...', '/opt/lampp/htdo...', 3, Array)
+#1 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(61): include('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(343): Kohana_View::capture('/opt/lampp/htdo...', Array)
+#3 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(228): Kohana_View->render()
+#4 /opt/lampp/htdocs/ClickandBuy/application/views/template.php(33): Kohana_View->__toString()
+#5 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(61): include('/opt/lampp/htdo...')
+#6 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(343): Kohana_View::capture('/opt/lampp/htdo...', Array)
+#7 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/controller/template.php(44): Kohana_View->render()
+#8 [internal function]: Kohana_Controller_Template->after()
+#9 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client/internal.php(119): ReflectionMethod->invoke(Object(Controller_Verify))
+#10 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#11 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#12 /opt/lampp/htdocs/ClickandBuy/index.php(109): Kohana_Request->execute()
+#13 {main}
+2014-06-16 23:40:24 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH/views/verify.php [ 3 ]
+2014-06-16 23:40:24 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH/views/verify.php [ 3 ]
+--
+#0 /opt/lampp/htdocs/ClickandBuy/application/views/verify.php(3): Kohana_Core::error_handler(2, 'Invalid argumen...', '/opt/lampp/htdo...', 3, Array)
+#1 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(61): include('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(343): Kohana_View::capture('/opt/lampp/htdo...', Array)
+#3 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(228): Kohana_View->render()
+#4 /opt/lampp/htdocs/ClickandBuy/application/views/template.php(33): Kohana_View->__toString()
+#5 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(61): include('/opt/lampp/htdo...')
+#6 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(343): Kohana_View::capture('/opt/lampp/htdo...', Array)
+#7 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/controller/template.php(44): Kohana_View->render()
+#8 [internal function]: Kohana_Controller_Template->after()
+#9 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client/internal.php(119): ReflectionMethod->invoke(Object(Controller_Verify))
+#10 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#11 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#12 /opt/lampp/htdocs/ClickandBuy/index.php(109): Kohana_Request->execute()
+#13 {main}
+2014-06-16 23:40:25 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH/views/verify.php [ 3 ]
+2014-06-16 23:40:25 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH/views/verify.php [ 3 ]
+--
+#0 /opt/lampp/htdocs/ClickandBuy/application/views/verify.php(3): Kohana_Core::error_handler(2, 'Invalid argumen...', '/opt/lampp/htdo...', 3, Array)
+#1 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(61): include('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(343): Kohana_View::capture('/opt/lampp/htdo...', Array)
+#3 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(228): Kohana_View->render()
+#4 /opt/lampp/htdocs/ClickandBuy/application/views/template.php(33): Kohana_View->__toString()
+#5 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(61): include('/opt/lampp/htdo...')
+#6 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(343): Kohana_View::capture('/opt/lampp/htdo...', Array)
+#7 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/controller/template.php(44): Kohana_View->render()
+#8 [internal function]: Kohana_Controller_Template->after()
+#9 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client/internal.php(119): ReflectionMethod->invoke(Object(Controller_Verify))
+#10 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#11 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#12 /opt/lampp/htdocs/ClickandBuy/index.php(109): Kohana_Request->execute()
+#13 {main}
+2014-06-16 23:40:41 --- ERROR: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH/views/verify.php [ 3 ]
+2014-06-16 23:40:41 --- STRACE: ErrorException [ 2 ]: Invalid argument supplied for foreach() ~ APPPATH/views/verify.php [ 3 ]
+--
+#0 /opt/lampp/htdocs/ClickandBuy/application/views/verify.php(3): Kohana_Core::error_handler(2, 'Invalid argumen...', '/opt/lampp/htdo...', 3, Array)
+#1 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(61): include('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(343): Kohana_View::capture('/opt/lampp/htdo...', Array)
+#3 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(228): Kohana_View->render()
+#4 /opt/lampp/htdocs/ClickandBuy/application/views/template.php(33): Kohana_View->__toString()
+#5 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(61): include('/opt/lampp/htdo...')
+#6 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/view.php(343): Kohana_View::capture('/opt/lampp/htdo...', Array)
+#7 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/controller/template.php(44): Kohana_View->render()
+#8 [internal function]: Kohana_Controller_Template->after()
+#9 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client/internal.php(119): ReflectionMethod->invoke(Object(Controller_Verify))
+#10 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request/client.php(64): Kohana_Request_Client_Internal->execute_request(Object(Request))
+#11 /opt/lampp/htdocs/ClickandBuy/system/classes/kohana/request.php(1164): Kohana_Request_Client->execute(Object(Request))
+#12 /opt/lampp/htdocs/ClickandBuy/index.php(109): Kohana_Request->execute()
+#13 {main}

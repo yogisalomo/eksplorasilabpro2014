@@ -11,17 +11,19 @@ class Controller_Form extends Controller_Application {
 				if (Model_User::is_available($_POST['username']))
 					$errors[] = 'Username Available';
 				else {
-					Model_User::sign_up($_POST);
-					if (Model_User::verification_step($_POST['email'],$_POST['username'],$_POST['password']))
+					$_POST['hash'] = md5(rand(0,1000)); 
+					if (Model_User::verification_step($_POST['email'],$_POST['hash'])) {
 						$errors[] = 'A verification email has been sent to your email';
+						Model_User::sign_up($_POST);
+					}
 					else
-						$errors[] = 'Please check again your email';
-					//Cookie::set('username', Model_User::sign_in($_POST['username'], $_POST['password']));
-					//$this->template->content = View::factory('welcome');
+						$errors[] = 'Please check your email again';
+					// Cookie::set('username', Model_User::sign_in($_POST['username'], $_POST['password']));
+					// $this->template->content = View::factory('welcome');
 				}
 			}
 			else
-				$errors[] = 'The passwords are not same';
+				$errors[] = 'The passwords don\'t match';
 		}
 	}
 	// sign in

@@ -1,4 +1,4 @@
-$("button").click(function(event) {
+$("#signup button").click(function(event) {
 	var pass = true;
 	$(".ui-state-error").hide();
 	$(".jumbotron input").each(function(index) {
