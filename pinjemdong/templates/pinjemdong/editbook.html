@@ -1,6 +1,24 @@
 {% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'pinjemdong/bootstrap.min.css' %}" />
 
+<SCRIPT language="JavaScript">
+function OnSubmitForm()
+{
+  if(document.search.radiosearch[0].checked == true)
+  {
+    document.search.action ="{% url 'pinjemdong:search' username %}";
+    document.search.method ="post"
+  }
+  else
+  if(document.search.radiosearch[1].checked == true)
+  {
+    document.search.action ="{% url 'pinjemdong:searchbook' username %}";
+    document.search.method ="post"
+  }
+  return true;
+}
+</SCRIPT>
+
 <title>Pinjemdong</title>
 <body>
 	<nav class="navbar navbar-default" role="navigation">	
@@ -15,43 +33,104 @@
    				<a class="navbar-brand" href="{% url 'pinjemdong:home' username %}">Home</a>
 				<a class="navbar-brand" href="{% url 'pinjemdong:myprofile' username %}">Profile</a>
 				<a class="navbar-brand" href="{% url 'pinjemdong:login' %}">Log Out</a>
-				
+				<form class="navbar-form navbar-left" role="search" name="search" onSubmit="return OnSubmitForm();">
+					{% csrf_token %}
+			        <div class="form-group">
+			          	<input type="text" class="form-control" placeholder="Search" name="query" id="query">
+			        </div>
+			        <button type="submit" class="btn btn-default">Submit</button>
+			        <input type="radio" name="radiosearch" checked="checked"/>People
+					<input type="radio" name="radiosearch" />Book
+		      	</form>
 			</div>
 		</div>
 	</nav>
 
-Edit Book
-<br><br>
-
-{% if book %}	
-	<form action="{% url 'pinjemdong:changebook' username book.title %}" method="post">
-		{% csrf_token %}
-		<label for="title">Title</label>
-		<input type="text" name="title" id="title" value="{{ book.title }}"/><br>
-		<label for="writer">Writer</label>
-		<input type="text" name="writer" id="writer" value="{{ book.writer }}"/><br>
-		<label for="publisher">Publisher</label>
-		<input type="text" name="publisher" id="publisher" value="{{ book.publisher }}"/><br>
-		<label for="place">Place</label>
-		<input type="text" name="place" id="place" value="{{ book.place }}"/><br>
-		<label for="year">Year</label>
-		<input type="number" name="year" id="year" value="{{ book.year }}"/><br>
-		<input type="submit" value="Save"/>
-	</form>
-{% else %}
-	<form action="{% url 'pinjemdong:changebook' username None %}" method="post">
-		{% csrf_token %}
-		<label for="title">Title</label>
-		<input type="text" name="title" id="title"/><br>
-		<label for="writer">Writer</label>
-		<input type="text" name="writer" id="writer" /><br>
-		<label for="publisher">Publisher</label>
-		<input type="text" name="publisher" id="publisher" /><br>
-		<label for="place">Place</label>
-		<input type="text" name="place" id="place" /><br>
-		<label for="year">Year</label>
-		<input type="number" name="year" id="year" /><br>
-		<input type="submit" value="Save"/>
-	</form>
-{% endif %}
+<div class="panel panel-default">
+	{% if book %}	
+		<div class="panel-heading"><h3><b>Edit Book Info</b></h3></div>
+		<div class="panel-body">
+		<form action="{% url 'pinjemdong:changebook' username book.title %}" method="post" class="form-horizontal" role="form">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="title" class="col-sm-1 control-label">Title</label>
+				<div class="col-sm-5">
+				<input type="text" name="title" id="title" value="{{ book.title }}" class="form-control input-lg"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="writer" class="col-sm-1 control-label">Writer</label>
+				<div class="col-sm-5">
+				<input type="text" name="writer" id="writer" value="{{ book.writer }}" class="form-control input-lg"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="publisher" class="col-sm-1 control-label">Publisher</label>
+				<div class="col-sm-5">
+				<input type="text" name="publisher" id="publisher" value="{{ book.publisher }}" class="form-control input-lg"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="place" class="col-sm-1 control-label">Place</label>
+				<div class="col-sm-5">
+				<input type="text" name="place" id="place" value="{{ book.place }}" class="form-control input-lg"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="year" class="col-sm-1 control-label">Year</label>
+				<div class="col-sm-5">
+				<input type="number" name="year" id="year" value="{{ book.year }}" class="form-control input-lg"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-1 col-sm-10">
+				<input type="submit" value="Save" class="btn btn-default btn-lg"/>
+				</div>
+			</div>
+		</form>
+		</div>
+	{% else %}
+		<div class="panel-heading"><h3><b>Add New Book</b></h3></div>
+		<div class="panel-body">
+		<form action="{% url 'pinjemdong:changebook' username None %}" method="post" class="form-horizontal" role="form">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="title" class="col-sm-1 control-label">Title</label>
+				<div class="col-sm-5">
+				<input type="text" name="title" id="title" class="form-control input-lg"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="writer" class="col-sm-1 control-label">Writer</label>
+				<div class="col-sm-5">
+				<input type="text" name="writer" id="writer" class="form-control input-lg"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="publisher" class="col-sm-1 control-label">Publisher</label>
+				<div class="col-sm-5">
+				<input type="text" name="publisher" id="publisher" class="form-control input-lg"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="place" class="col-sm-1 control-label">Place</label>
+				<div class="col-sm-5">
+				<input type="text" name="place" id="place" class="form-control input-lg"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="year" class="col-sm-1 control-label">Year</label>
+				<div class="col-sm-5">
+				<input type="number" name="year" id="year" class="form-control input-lg"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-1 col-sm-10">
+				<input type="submit" value="Save" class="btn btn-default btn-lg"/>
+				</div>
+			</div>
+		</form>
+		</div>
+	{% endif %}
+</div>
 </body>

@@ -16,7 +16,7 @@ def index(request, message):
 def profile(request, username, peoplename):
     data = Account.objects.filter(username__exact=peoplename)
     people = data[0]
-    books = Book_list.objects.filter(username__username__exact=username)
+    books = Book_list.objects.filter(username__username__exact=peoplename)
     return render(request, 'pinjemdong/profile.html', { 'username' : username, 'people' : people, 'books' : books })
 
 def add(request, username, peoplename):

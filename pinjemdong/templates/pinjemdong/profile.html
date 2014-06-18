@@ -1,5 +1,22 @@
 {% load staticfiles %}
 <link rel="stylesheet" type="text/css" href="{% static 'pinjemdong/bootstrap.min.css' %}" />
+<SCRIPT language="JavaScript">
+function OnSubmitForm()
+{
+  if(document.search.radiosearch[0].checked == true)
+  {
+    document.search.action ="{% url 'pinjemdong:search' username %}";
+    document.search.method ="post"
+  }
+  else
+  if(document.search.radiosearch[1].checked == true)
+  {
+    document.search.action ="{% url 'pinjemdong:searchbook' username %}";
+    document.search.method ="post"
+  }
+  return true;
+}
+</SCRIPT>
 
 <title>Pinjemdong</title>
 <body>
@@ -15,31 +32,61 @@
    				<a class="navbar-brand" href="{% url 'pinjemdong:home' username %}">Home</a>
 				<a class="navbar-brand" href="{% url 'pinjemdong:myprofile' username %}">Profile</a>
 				<a class="navbar-brand" href="{% url 'pinjemdong:login' %}">Log Out</a>
-				
+				<form class="navbar-form navbar-left" role="search" name="search" onSubmit="return OnSubmitForm();">
+					{% csrf_token %}
+			        <div class="form-group">
+			          	<input type="text" class="form-control" placeholder="Search" name="query" id="query">
+			        </div>
+			        <button type="submit" class="btn btn-default">Submit</button>
+			        <input type="radio" name="radiosearch" checked="checked"/>People
+					<input type="radio" name="radiosearch" />Book
+		      	</form>
 			</div>
 		</div>
 	</nav>
 
-{{ people.name }} Profile
-<br><br>
-
-Username : {{ people.username }} <br>
-Name : {{ people.name }} <br>
-Address : {{ people.address }} <br>
-Favorite Book : {{ people.fav_book }} <br>
-Favorite Genre : {{ people.fav_genre }} <br>
-
-<br>
-Book List:<br>
-{% for book in books %}
-	<a href="{% url 'pinjemdong:book' username book.book.title %}">{{ book.book.title }}</a><br>
-	{% if book.available %}  
-		Book Available <a href="{% url 'pinjemdong:sendrequest' username people.username book.book.title %}">Send Borrow Request</a>
-		<br>
-	{% else %}
-		Book Not Available<br>
-	{% endif %}
+<div class="panel panel-default">
+	<div class="panel-heading"><h3><b>{{ people.name }}'s Profile</b></h3></div>
+	<div class="panel-body">
 	
-{% endfor %}
-<a href="{% url 'pinjemdong:add' username people.username %}">Add as Friend</a>
+	<div class="panel panel-default">
+		<div class="panel-heading">User Information</div>
+		<div style="white-space:pre;">
+	Username		: {{ people.username }}
+	Name			: {{ people.name }}
+	Address			: {{ people.address }}
+	Favorite Book		: {{ people.fav_book }}
+	Favorite Genre	: {{ people.fav_genre }}
+		</div>
+		<form action="{% url 'pinjemdong:add' username people.username %}">
+			<div style="padding-left:0.8cm">
+			<button type="submit" class="btn btn-default btn-lg">Add as Friend</button>
+			</div>
+		</form>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">User Book List</div>
+		<div class="panel-body">
+		{% for book in books %}
+			<li>
+			<a href="{% url 'pinjemdong:book' username book.book.title %}">{{ book.book.title }}</a><br>
+			Status: 
+			{% if book.available %}  
+				Available
+				<form action="{% url 'pinjemdong:sendrequest' username people.username book.book.title %}">
+					<div style="padding-left:0.1cm">
+					<button type="submit" class="btn btn-default">Send Borrow Request</button>
+					</div>
+				</form>
+			{% else %}
+				Not Available<br><br>
+			{% endif %}
+			</li>
+		{% endfor %}
+			
+		</div>
+	</div>
+	</div>
+</div>
 </body>
