@@ -1,0 +1,100 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'pinjemdong/bootstrap.min.css' %}" />
+<SCRIPT language="JavaScript">
+function OnSubmitForm()
+{
+  if(document.search.radiosearch[0].checked == true)
+  {
+    document.search.action ="{% url 'pinjemdong:search' user.username %}";
+    document.search.method ="post"
+  }
+  else
+  if(document.search.radiosearch[1].checked == true)
+  {
+    document.search.action ="{% url 'pinjemdong:searchbook' user.username %}";
+    document.search.method ="post"
+  }
+  return true;
+}
+</SCRIPT>
+
+<title>Pinjemdong</title>
+<body>
+	<nav class="navbar navbar-default" role="navigation">	
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+		      	</button>
+   				<a class="navbar-brand" href="{% url 'pinjemdong:home' user.username %}">Home</a>
+				<a class="navbar-brand" href="{% url 'pinjemdong:myprofile' user.username %}">Profile</a>
+				<a class="navbar-brand" href="{% url 'pinjemdong:login' %}">Log Out</a>
+				<form class="navbar-form navbar-left" role="search" name="search" onSubmit="return OnSubmitForm();">
+					{% csrf_token %}
+			        <div class="form-group">
+			          	<input type="text" class="form-control" placeholder="Search" name="query" id="query">
+			        </div>
+			        <button type="submit" class="btn btn-default">Submit</button>
+			        <input type="radio" name="radiosearch" checked="checked"/>People
+					<input type="radio" name="radiosearch" />Book
+		      	</form>
+			</div>
+		</div>
+	</nav>
+
+<div class="panel panel-default">
+	<div class="panel-heading"><h3><b>My Profile</b></h3></div>
+	<div class="panel-body">
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">User Information</div>
+		<div style="white-space:pre;">
+	Username 		:  {{ user.username }}
+	Name 			:  {{ user.name }}
+	Address			:  {{ user.address }}
+	Favorite Book		:  {{ user.fav_book }}
+	Favorite Genre	:  {{ user.fav_genre }}
+		</div>
+		<form action="{% url 'pinjemdong:editpage' user.username %}">
+			<div style="padding-left:0.8cm">
+			<button type="submit" class="btn btn-default btn-lg">Edit</button>
+			</div>
+		</form>
+	</div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">User Book List</div>
+		<div class="panel-body">
+		{% for book in books %}
+			<li>
+			<a href="{% url 'pinjemdong:book' user.username book.book.title %}">{{ book.book.title }}</a><br>
+			{% if book.available %}  
+				Status: Available<br>
+				<form action="{% url 'pinjemdong:acceptrequest' user.username  book.book.title %}" method="post">
+				{% csrf_token %}
+				Borrow request:<br> 
+				{% for requester in requesters %}
+					{% if requester.book.title == book.book.title %}
+						<input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ requester.requester.name }}"/>
+						<label for="choice{{ forloop.counter }}">{{ requester.requester.name }}</label>
+					{% endif %}
+				{% endfor %}
+				{% if requesters %}
+					<br><input type="submit" value="Accept request" class="btn btn-default"/>
+				{% endif %}
+				
+				</form>
+			{% else %}
+				Status: Not Available<br>
+			{% endif %}
+			<br>
+			</li>
+		{% endfor %}
+		</div>
+	</div>
+	</div>
+</div>
+</body>
